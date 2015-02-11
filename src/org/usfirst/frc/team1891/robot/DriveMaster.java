@@ -9,7 +9,7 @@ public class DriveMaster
 {
 	
 	//Instantiates joystick
-	Joystick joyRight;
+	public static Joystick joyRight;
 	// sets DEADZONE around all axis
 	public final double DEADZONE=0.2;
 	//constructor for DriveMaster
@@ -22,7 +22,7 @@ public class DriveMaster
 	{
 		return DEADZONE;
 	}
-	//gets the profile
+	//gets the profile`
 	public int getProfile()
 	{
 		//for main logitech joystick and logitech controller
@@ -80,8 +80,7 @@ public class DriveMaster
 		return 0;
 	}
 	
-	public boolean getButton(int button)
-	{
+	public boolean getButton(int button){
 		return joyRight.getRawButton(button);
 	}
 	

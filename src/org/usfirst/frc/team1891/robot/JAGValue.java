@@ -21,7 +21,8 @@ public class JAGValue
 		double b = (y + z + x) * damp;
 		double c = (y + z - x) * damp;
 		double d = (y - z + x) * damp;
-		
+		double e = (-y);
+				
 		double overflow = getOverflow(a, b, c, d);
 		
 		
@@ -40,6 +41,10 @@ public class JAGValue
 		if (Index == 6)
 		{
 			Speed = d * overflow;
+		}
+		if (Index == 7)
+		{
+			Speed = e;
 		}
 		
 		
