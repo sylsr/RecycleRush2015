@@ -141,7 +141,7 @@ public class Robot extends IterativeRobot
 
 	public void teleopPeriodic() 
     {	
-		boolean but = DriveMaster.joyRight.getRawButton(4);
+		boolean but = jagMaster.roboDrive.getButton(4);
 		if (but) {
 			double val = jagMaster.setSpeed(7);
 			jag7.set(val);

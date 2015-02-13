@@ -9,7 +9,7 @@ public class DriveMaster
 {
 	
 	//Instantiates joystick
-	public static Joystick joyRight;
+	Joystick joyRight;
 	// sets DEADZONE around all axis
 	public final double DEADZONE=0.2;
 	//constructor for DriveMaster
@@ -22,7 +22,7 @@ public class DriveMaster
 	{
 		return DEADZONE;
 	}
-	//gets the profile`
+	//gets the profile
 	public int getProfile()
 	{
 		//for main logitech joystick and logitech controller
@@ -34,6 +34,7 @@ public class DriveMaster
 		//for logitech attack 3 joystick
 		if (joyRight.getButtonCount() == 11) profileIndex = 3;
 		
+		if (joyRight.getButtonCount() == 5) profileIndex = 4;
 		
 		return profileIndex;
 	}
@@ -66,6 +67,10 @@ public class DriveMaster
 		{
 			z = buttonDrive();
 		}
+		if (getProfile()==4)
+		{
+			z = getDead(-joyRight.getRawAxis(4));
+		}
 		return z;
 		
 	}
@@ -80,7 +85,8 @@ public class DriveMaster
 		return 0;
 	}
 	
-	public boolean getButton(int button){
+	public boolean getButton(int button)
+	{
 		return joyRight.getRawButton(button);
 	}
 	
@@ -89,6 +95,8 @@ public class DriveMaster
 		double slider = 0;
 		if(getProfile() == 3){
 			slider = joyRight.getZ();
+		}else if(getProfile() == 4){
+			slider = joyRight.getRawAxis(3);
 		}else{
 			slider = joyRight.getRawAxis(3);
 		}

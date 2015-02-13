@@ -21,8 +21,7 @@ public class JAGValue
 		double b = (y + z + x) * damp;
 		double c = (y + z - x) * damp;
 		double d = (y - z + x) * damp;
-		double e = (-y);
-				
+		
 		double overflow = getOverflow(a, b, c, d);
 		
 		
@@ -41,10 +40,6 @@ public class JAGValue
 		if (Index == 6)
 		{
 			Speed = d * overflow;
-		}
-		if (Index == 7)
-		{
-			Speed = e;
 		}
 		
 		
@@ -68,6 +63,8 @@ public class JAGValue
 		//for slider on joystick damp
 		if(roboDrive.getProfile() == 3||roboDrive.getProfile()==1){
 			damp = (-roboDrive.getSlider() + 1) * .35 + .3;
+		}else if (roboDrive.getProfile() == 4){
+			damp = roboDrive.getSlider() * .7+.3;
 		}
 		//for xbox360 r trigger damp
 		else if (roboDrive.getProfile() == 2){
