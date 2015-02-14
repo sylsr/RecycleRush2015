@@ -9,6 +9,14 @@ public class JAGValue
 	
 	//setSpeed retrieves the axis from the joystick, modifies it, sets the deadzone
 	//dampens it and then returns the modified value.
+	
+	
+	public double liftArm(){
+		double val = roboDrive.getYAxis();
+		return(val);
+		
+	}
+	
 	public double setSpeed(int Index)
 	{
 		double Speed = 0;

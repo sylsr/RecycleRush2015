@@ -140,30 +140,24 @@ public class Robot extends IterativeRobot
     }
 
 	public void teleopPeriodic() 
-    {	
-		boolean but = jagMaster.roboDrive.getButton(4);
-		if (but) {
-			double val = jagMaster.setSpeed(7);
-			jag7.set(val);
-			if (Math.abs(val) > 0.2) {
-				if (val > 0) {
-					System.out.println("Lift Current (down):"
-							+ jag7.getOutputCurrent());
-				} else {
-					System.out.println("Lift Current (up):"
-							+ jag7.getOutputCurrent());
-				}
-			}
-			
-		} else {
-			Scheduler.getInstance().run();
-			jag3.set(jagMaster.setSpeed(3));
-			jag4.set(jagMaster.setSpeed(4));
-			jag5.set(jagMaster.setSpeed(5));
-			jag6.set(jagMaster.setSpeed(6));
+    {
+		if (jagMaster.roboDrive.getButton(4)) {
+		jag7.set(jagMaster.liftArm());
+		if (jagMaster.liftArm() > 0) {
+			System.out.println("Lift Current (down):"
+					+ jag7.getOutputCurrent());
+		}else{
+			System.out.println("Lift Current (up):"
+					+ jag7.getOutputCurrent());
 		}
-
-//		IMU.startDash();
+		}else{
+		Scheduler.getInstance().run();
+		jag3.set(jagMaster.setSpeed(3));
+		jag4.set(jagMaster.setSpeed(4));
+		jag5.set(jagMaster.setSpeed(5));
+		jag6.set(jagMaster.setSpeed(6));
+		}
+		//		IMU.startDash();
 //		SmartDashboard.putBoolean("Testing",digitalSwitch.testDigitalInput());  
 //		servo1.start();
 //		SmartDashboard.putNumber("Potentiometer", pot1.returnAngle());
