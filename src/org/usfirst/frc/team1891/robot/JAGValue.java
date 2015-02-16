@@ -12,7 +12,7 @@ public class JAGValue
 	
 	
 	public double liftArm(){
-		double val = roboDrive.getYAxis();
+		double val = -roboDrive.getYAxis();
 		return(val);
 		
 	}

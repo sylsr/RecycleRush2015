@@ -46,7 +46,7 @@ public class Robot extends IterativeRobot
 		jag4 = new CANJaguar(4);
 		jag5 = new CANJaguar(3);
 		jag6 = new CANJaguar(2);
-		jag7 = new CANJaguar(5);
+		jag7 = new CANJaguar(7);
 //		IMU = new AccelMaster();
 //		digitalSwitch=new DigitalSensorMaster();
 //		servo1 = new ServoMaster();
