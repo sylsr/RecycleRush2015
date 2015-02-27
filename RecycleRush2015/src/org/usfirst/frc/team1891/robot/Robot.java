@@ -16,10 +16,12 @@ import org.usfirst.frc.team1891.robot.subsystems.ExampleSubsystem;
 
 public class Robot extends IterativeRobot
 {
-
+	JagSlave jagSlave;
+	DriveAlign boxAlign;
     public void robotInit()
     {
-
+    	jagSlave = new JagSlave();
+    	boxAlign=new DriveAlign();
     }
 	
 	public void disabledPeriodic() 
@@ -35,7 +37,30 @@ public class Robot extends IterativeRobot
 
     public void autonomousPeriodic()
     {
-    	
+    	switch(boxAlign.driveAlign())
+        {
+        	case 0:
+        		jagSlave.moveForward();
+        		break;
+        	case 1:
+        	     switch(boxAlign.centerRobot())
+        	     {
+        		      case 0:
+	        		      jagSlave.moveHorizontallyLeft();;
+	        		      break;
+        		      case 1:
+        		    	  jagSlave.moveHorizontallyRight();
+	        		      break;
+        		      default:
+        		    	  //jagSlave.liftDown();
+        		    	  jagSlave.stopRobot();
+	        		      break;
+        	      }
+        	      break;  
+        	default:
+        		break;
+        
+        }
     }
 
     public void teleopInit() 

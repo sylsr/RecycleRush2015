@@ -2,6 +2,7 @@ package org.usfirst.frc.team1891.robot;
 
 public class JagSlave
 {
+	static boolean hasBeenSet=false;
 	JagMaster jagMaster=new JagMaster();
 	/**
 	 * Code to move the robot forwards
@@ -9,11 +10,15 @@ public class JagSlave
 	 */
 	public void moveForward()
 	{
-		jagMaster.setAllVoltage();
-		jagMaster.setJag2(1);
-		jagMaster.setJag3(1);
-		jagMaster.setJag4(1);
-		jagMaster.setJag6(1);
+		if(hasBeenSet!=true)
+		{
+			jagMaster.setAllVoltage();
+		}
+		jagMaster.setJag2(-3);
+		jagMaster.setJag3(3);
+		jagMaster.setJag4(3);
+		jagMaster.setJag6(-3);
+		hasBeenSet=true;
 	}
 	/**
 	 * Code to move the robot horizontally right
@@ -21,7 +26,11 @@ public class JagSlave
 	 */
 	public void moveHorizontallyRight()
 	{
-		jagMaster.setAllVoltage();
+		if(hasBeenSet!=true)
+		{
+			jagMaster.setAllVoltage();
+		}
+		hasBeenSet=true;
 	}
 	/**
 	 * Code to move the robot horizontally left
@@ -29,7 +38,11 @@ public class JagSlave
 	 */
 	public void moveHorizontallyLeft()
 	{
-		jagMaster.setAllVoltage();
+		if(hasBeenSet!=true)
+		{
+			jagMaster.setAllVoltage();
+		}
+		hasBeenSet=true;
 	}
 	/**
 	 * Code to move the robot backwards
@@ -37,17 +50,29 @@ public class JagSlave
 	 */
 	public void moveBackwards()
 	{
-		jagMaster.setAllVoltage();
+		if(hasBeenSet!=true)
+		{
+			jagMaster.setAllVoltage();
+		}
+		jagMaster.setJag2(3);
+		jagMaster.setJag3(-3);
+		jagMaster.setJag4(-3);
+		jagMaster.setJag6(3);
+		hasBeenSet=true;
 	}
 	/**
 	 * Code to stop the robot 
 	 */
 	public void stopRobot()
 	{
-		jagMaster.setAllVoltage();
+		if(hasBeenSet!=true)
+		{
+			jagMaster.setAllVoltage();
+		}
 		jagMaster.setJag2(0);
 		jagMaster.setJag3(0);
 		jagMaster.setJag4(0);
 		jagMaster.setJag6(0);
+		hasBeenSet=true;
 	}
 }
