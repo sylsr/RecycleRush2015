@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.CANJaguar;
 
 public class LifterJag
 {
+	double plo;
+	double pup = plo + 4.732;
 	CANJaguar jagLift;
 	boolean mode = false;
 	
@@ -26,13 +28,13 @@ public class LifterJag
 	{
 		if(mode!= false)
 		{
-		jagLift.setPositionMode(CANJaguar.kQuadEncoder, 1000, 0, 0, 0);
+		jagLift.setPositionMode(CANJaguar.kQuadEncoder, 1000, plo, 0.5, 0.5);
 		jagLift.getPosition();
 		jagLift.enableControl();
 		}
 		mode = true;
 	}
-	public void jagLiftMove(int setVal)
+	public void jagLiftMove(double setVal)
 	{
 		jagLift.set(setVal);
 	}
