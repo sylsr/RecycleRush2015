@@ -15,6 +15,9 @@ public class JagMaster
 		jag4=new CANJaguar(4);
 		jag6=new CANJaguar(6);
 	}
+	/**
+	 * Instantiates all the drive jags in voltage mode
+	 */
 	public void setAllVoltage()
 	{
 		jag2.setVoltageMode();
@@ -26,5 +29,38 @@ public class JagMaster
 		jag4.enableControl();
 		jag6.enableControl();
 	}
+	/**
+	 * gets a voltage value and sets jag 2 to that voltage value
+	 * @param setVal
+	 */
+	public void setJag2(int setVal)
+	{
+		jag2.set(setVal);
+	}
+	/**
+	 * gets a voltage value and sets jag 3 to that voltage value
+	 * @param setVal
+	 */
+	public void setJag3(int setVal)
+	{
+		jag3.set(setVal);
+	}
+	/**
+	 * gets a voltage value and sets jag 4 to that voltage value
+	 * @param setVal
+	 */
+	public void setJag4(int setVal)
+	{
+		jag4.set(setVal);
+	}
+	/**
+	 * gets a voltage value and sets jag 6 to that voltage value
+	 * @param setVal
+	 */
+	public void setJag6(int setVal)
+	{
+		jag6.set(setVal);
+	}
+	
 	
 }

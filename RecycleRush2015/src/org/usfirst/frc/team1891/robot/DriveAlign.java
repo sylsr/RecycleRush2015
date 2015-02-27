@@ -24,11 +24,6 @@ public class DriveAlign extends InfraredSlave
 	}
 	/**
 	 * startDash() sends all IR sensor data to the smartdashbaord
-	 * @return
-	 */
-	/**
-	 * startTestDash() gets the raw data from the IR sensors
-	 * @return
 	 */
 	public void startDash()
 	{
