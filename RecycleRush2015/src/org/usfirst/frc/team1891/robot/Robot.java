@@ -16,10 +16,10 @@ import org.usfirst.frc.team1891.robot.subsystems.ExampleSubsystem;
 
 public class Robot extends IterativeRobot
 {
-
+	TalonSlave talonSlave;
     public void robotInit()
     {
-
+    	talonSlave= new TalonSlave();
     }
 	
 	public void disabledPeriodic() 
@@ -35,7 +35,7 @@ public class Robot extends IterativeRobot
 
     public void autonomousPeriodic()
     {
-    	
+    	talonSlave.spinIn();
     }
 
     public void teleopInit() 
