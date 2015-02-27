@@ -2,18 +2,24 @@ package org.usfirst.frc.team1891.robot;
 
 import edu.wpi.first.wpilibj.CANJaguar;
 
-public class LiftMaster 
+public class LiftMaster extends LifterJag
 {
-	CANJaguar jagLift;
+	LifterJag jagLift;
 	public LiftMaster()
 	{
-		LifterJag jagLift = new LifterJag();
+		jagLift = new LifterJag();
 	}
 	public void init()
 	{
-		if(jagLift.getForwardLimitOK() != false)
+		if(jagLift.getTopLimitSwitch() != false)
 		{
 			jagLift.enableControl();
+		}
+		else
+		{
+			jagLift.setPosition();
+			jagLift.getPosition();
+			
 		}
 	}
 
