@@ -13,13 +13,13 @@ public class TalonMaster {
 	
 	public void spinWheels()
 	{
-		talon1.set(1);
-		talon2.set(-1);
+		talon1.set(.5);
+		talon2.set(-.5);
 	}
 	
 	public void spinWheelsBack()
 	{
-		talon1.set(-1);
-		talon2.set(1);
+		talon1.set(-.5);
+		talon2.set(.5);
 	}
 }
