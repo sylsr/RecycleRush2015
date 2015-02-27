@@ -50,7 +50,9 @@ public class DriveAlign extends InfraredSlave
 			return 1;
 		}
 		else
+		{
 			return 2;
+		}
 	}
 }
 
