@@ -14,14 +14,18 @@ public class LifterJag
 	public void setVoltageMode()
 	{
 		jagLift.setVoltageMode();
+		jagLift.enableControl();
+		
 	}
 	public void setPositionMode()
 	{
 		jagLift.setPositionMode(CANJaguar.kQuadEncoder, 1000, 0, 0, 0);
+		jagLift.enableControl();
 	}
-	public void jagLiftMove()
+	public void jagLiftMove(int setVal)
 	{
-		
+		jagLift.enableControl();
+		jagLift.set(setVal);
 	}
 	
 	

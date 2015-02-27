@@ -9,7 +9,7 @@ public class LiftMaster
 	{
 		LifterJag jagLift = new LifterJag();
 	}
-	public double Init()
+	public void init()
 	{
 		if(jagLift.getForwardLimitOK() != false)
 		{
