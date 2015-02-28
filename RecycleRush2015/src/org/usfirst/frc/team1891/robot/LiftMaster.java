@@ -30,9 +30,9 @@ public class LiftMaster
 	{
 		jagLift.setPosition();
 	}
-	public void moveJag(double setVal)
+	public void moveJag(double val)
 	{
-		jagLift.jagLiftMove(setVal);
+		jagLift.jagLiftMove(val);
 	}
 	public boolean topLimitSwitch()
 	{

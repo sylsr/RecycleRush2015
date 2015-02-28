@@ -16,12 +16,14 @@ public class LifterJag
 	
 	public void setVoltage()
 	{
+		mode = false;
 		if(mode != true)
 		{
 		jagLift.setVoltageMode();
 		jagLift.enableControl();
+		mode = true;
 		}
-		mode = false;
+		
 		
 	}
 	public void setPosition()
@@ -53,6 +55,7 @@ public class LifterJag
 	{
 		return jagLift.getPosition();
 	}
+	
 	
 	
 
