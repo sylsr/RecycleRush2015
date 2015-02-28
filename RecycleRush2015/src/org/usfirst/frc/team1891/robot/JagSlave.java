@@ -30,10 +30,10 @@ public class JagSlave
 		{
 			jagMaster.setAllVoltage();
 		}
-		jagMaster.setJag2(5);
-		jagMaster.setJag3(-5);
-		jagMaster.setJag4(5);
-		jagMaster.setJag6(-5);
+		jagMaster.setJag2(4);
+		jagMaster.setJag3(-4);
+		jagMaster.setJag4(4);
+		jagMaster.setJag6(-4);
 		hasBeenSet=true;
 	}
 	/**
@@ -46,10 +46,10 @@ public class JagSlave
 		{
 			jagMaster.setAllVoltage();
 		}
-		jagMaster.setJag2(-5);
-		jagMaster.setJag3(5);
-		jagMaster.setJag4(-5);
-		jagMaster.setJag6(5);
+		jagMaster.setJag2(-4);
+		jagMaster.setJag3(4);
+		jagMaster.setJag4(-4);
+		jagMaster.setJag6(4);
 		hasBeenSet=true;
 	}
 	/**

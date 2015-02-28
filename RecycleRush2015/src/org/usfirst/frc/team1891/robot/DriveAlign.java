@@ -15,9 +15,9 @@ public class DriveAlign extends InfraredSlave
 	 */
 	public int driveAlign()
 	{
-		if(super.averageLeft()>1000)
+		if(super.averageLeft()>900)
 		{
-			if(super.averageRight()>1000)
+			if(super.averageRight()>900)
 			{
 				return 1;
 			}
