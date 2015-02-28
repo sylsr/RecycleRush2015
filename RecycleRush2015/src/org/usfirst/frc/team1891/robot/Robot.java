@@ -16,12 +16,14 @@ import org.usfirst.frc.team1891.robot.subsystems.ExampleSubsystem;
 
 public class Robot extends IterativeRobot
 {
+	LiftSlave jagLift;
 	JagSlave jagSlave;
 	DriveAlign boxAlign;
 	TalonSlave talonSlave;
 	LiftSlave lifter;
     public void robotInit()
     {
+    	jagLift = new LiftSlave();
     	jagSlave = new JagSlave();
     	boxAlign=new DriveAlign();
     	talonSlave = new TalonSlave();
@@ -41,6 +43,10 @@ public class Robot extends IterativeRobot
 
     public void autonomousPeriodic()
     {
+    	SmartDashboard.putBoolean("Top Limit Switch", jagLift.topLimitSwitch());
+    	SmartDashboard.putBoolean("Bottom Limit Switch", jagLift.bottomLimitSwitch());
+    	SmartDashboard.putDouble("P Value", jagLift.p());
+    	jagLift.liftDown(-1);
     	boxAlign.startDash();
     	talonSlave.spinIn();
     	lifter.test();
@@ -65,12 +71,9 @@ public class Robot extends IterativeRobot
     					jagSlave.stopRobot();
     					break;
     				default:
-    					jagSlave.stopRobot();
     					break;
     			}
-    			break;
     		default:
-    			jagSlave.stopRobot();
     			break;
     	}*/
     }
