@@ -18,8 +18,10 @@ public class Robot extends IterativeRobot
 {
 	JagSlave jagSlave;
 	DriveAlign boxAlign;
+	LiftSlave jagLift;
     public void robotInit()
     {
+    	jagLift = new LiftSlave();
     	jagSlave = new JagSlave();
     	boxAlign=new DriveAlign();
     }
@@ -31,13 +33,17 @@ public class Robot extends IterativeRobot
 
     public void autonomousInit()
     {
+    	
 
     }
 
 
     public void autonomousPeriodic()
     {
-    	switch(boxAlign.driveAlign())
+    	SmartDashboard.putBoolean("Top Limit Switch", jagLift.topLimitSwitch());
+    	SmartDashboard.putBoolean("Bottom Limit Switch", jagLift.bottomLimitSwitch());
+    	SmartDashboard.putDouble("P Lift Value", jagLift.p());
+    	/*switch(boxAlign.driveAlign())
         {
         	case 0:
         		jagSlave.moveForward();
@@ -60,7 +66,7 @@ public class Robot extends IterativeRobot
         	default:
         		break;
         
-        }
+        }*/
     }
 
     public void teleopInit() 

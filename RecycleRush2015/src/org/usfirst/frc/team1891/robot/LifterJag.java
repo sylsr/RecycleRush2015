@@ -16,23 +16,22 @@ public class LifterJag
 	
 	public void setVoltage()
 	{
-		if(mode != false)
+		if(mode != true)
 		{
 		jagLift.setVoltageMode();
 		jagLift.enableControl();
 		}
-		mode = true;
+		mode = false;
 		
 	}
 	public void setPosition()
 	{
-		if(mode!= false)
+		if(mode!= true)
 		{
 		jagLift.setPositionMode(CANJaguar.kQuadEncoder, 1000, plo, 0.5, 0.5);
-		jagLift.getPosition();
 		jagLift.enableControl();
 		}
-		mode = true;
+		mode = false;
 	}
 	public void jagLiftMove(double setVal)
 	{
@@ -50,9 +49,9 @@ public class LifterJag
 	{
 		jagLift.enableControl();
 	}
-	public void getPosition()
+	public double getPosition()
 	{
-		jagLift.getPosition();
+		return jagLift.getPosition();
 	}
 	
 	
