@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1891.robot;
 
-import edu.wpi.first.wpilibj.Sendable;
+
 
 public class LiftSlave
 {
@@ -15,10 +15,15 @@ public class LiftSlave
 		jagLift.voltMode();
 		jagLift.moveJag(setVal);
 	}
-	public void liftDown()
+	public void liftDown(double setVal)
 	{
 		jagLift.voltMode();
-		jagLift.moveJag(-1);
+		if(jagLift.bottomLimitSwitch() == false)
+		{
+			jagLift.moveJag(0);
+		}
+		else
+		jagLift.moveJag(setVal);
 	}
 	public boolean topLimitSwitch()
 	{
@@ -34,6 +39,7 @@ public class LiftSlave
 	}
 	public double p()
 	{
+		jagLift.positionMode();
 		return jagLift.getPosition();
 	}
 
