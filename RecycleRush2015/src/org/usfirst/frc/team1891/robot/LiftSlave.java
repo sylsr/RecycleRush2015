@@ -1,46 +1,42 @@
 package org.usfirst.frc.team1891.robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 
 public class LiftSlave
 {
+	static boolean configurationComplete=false;
 	LiftMaster jagLift;
 
 	public LiftSlave()
-	{
+	{	
 		jagLift = new LiftMaster();
+
 	}
-	public void liftUp(double setVal)
+	public void test()
 	{
-		jagLift.voltMode();
-		jagLift.moveJag(setVal);
-	}
-	public void liftDown(double setVal)
-	{
-		jagLift.voltMode();
-		if(jagLift.bottomLimitSwitch() == false)
+		if(configurationComplete!=true)
 		{
-			jagLift.moveJag(0);
+			if(jagLift.turnOn()==1)
+			{
+				configurationComplete=true;
+			}
+			jagLift.turnOn();
 		}
-		else
-		jagLift.moveJag(setVal);
 	}
-	public boolean topLimitSwitch()
+	public void startLifterDash()
 	{
-		return jagLift.topLimitSwitch();
+		SmartDashboard.putNumber("Testing Lifter Position", jagLift.getPosition());
+		jagLift.siftDash();
 	}
-	public boolean bottomLimitSwitch()
+	public void moveUp()
 	{
-		return jagLift.bottomLimitSwitch();
-	}
-	public void usingPValue()
-	{
-		jagLift.positionMode();
-	}
-	public double p()
-	{
-		jagLift.positionMode();
-		return jagLift.getPosition();
+		if(configurationComplete!=false)
+		{
+		
+			jagLift.moveUpwards();
+		}
 	}
 
 }

@@ -4,19 +4,17 @@ import edu.wpi.first.wpilibj.CANJaguar;
 
 public class LifterJag
 {
-	double plo;
-	double pup = plo + 4.732;
+	//double plo;
+	//double pup = plo + 4.732;
 	CANJaguar jagLift;
-	boolean mode = false;
-	
+	static boolean mode = false;	
 	public LifterJag()
 	{
 		jagLift = new CANJaguar(5);
 	}
 	
-	public void setVoltage()
+	public void setVoltageMode()
 	{
-		mode = false;
 		if(mode != true)
 		{
 		jagLift.setVoltageMode();
@@ -26,14 +24,14 @@ public class LifterJag
 		
 		
 	}
-	public void setPosition()
+	public void setPositionMode()
 	{
 		if(mode!= true)
 		{
-		jagLift.setPositionMode(CANJaguar.kQuadEncoder, 1000, plo, 0.5, 0.5);
+		jagLift.setPositionMode(CANJaguar.kQuadEncoder, 1000, 0.0, 0.5, 0.5);
 		jagLift.enableControl();
 		}
-		mode = false;
+		mode = true;;
 	}
 	public void jagLiftMove(double setVal)
 	{
@@ -47,12 +45,9 @@ public class LifterJag
 	{
 		return jagLift.getReverseLimitOK();
 	}
-	public void enableControl()
-	{
-		jagLift.enableControl();
-	}
 	public double getPosition()
 	{
+		jagLift.configEncoderCodesPerRev(1000);
 		return jagLift.getPosition();
 	}
 	

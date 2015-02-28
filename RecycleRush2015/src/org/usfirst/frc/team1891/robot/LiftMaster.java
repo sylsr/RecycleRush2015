@@ -1,54 +1,48 @@
 package org.usfirst.frc.team1891.robot;
 
 import edu.wpi.first.wpilibj.CANJaguar;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class LiftMaster
 {
+	static boolean hitSwitch=false;
 	LifterJag jagLift;
+	static double startBottomPosition=0;
 	public LiftMaster()
 	{
 		jagLift = new LifterJag();
 	}
-	public void init()
+	public int turnOn()
 	{
-		if(jagLift.getTopLimitSwitch() != false)
+		if(hitSwitch!=true)
 		{
-			jagLift.enableControl();
+			jagLift.setVoltageMode();
+			if(jagLift.getBottomLimitSwitch()!=false)
+			{
+				jagLift.jagLiftMove(-2.0);
+				return 0;
+			}
+			else
+			{
+				jagLift.setPositionMode();
+				startBottomPosition=jagLift.getPosition();
+				hitSwitch=true;
+				return 1;
+			}
 		}
-		else
-		{
-			jagLift.setPosition();
-			jagLift.getPosition();
-			
-		}
-	}
-	public void voltMode()
-	{
-		jagLift.setVoltage();
-	}
-	public void positionMode()
-	{
-		jagLift.setPosition();
-	}
-	public void moveJag(double val)
-	{
-		jagLift.jagLiftMove(val);
-	}
-	public boolean topLimitSwitch()
-	{
-		return jagLift.getTopLimitSwitch();
-	}
-	public boolean bottomLimitSwitch()
-	{
-		return jagLift.getBottomLimitSwitch();
-	}
-	public void enableControl()
-	{
-		jagLift.enableControl();
+		return 1;
 	}
 	public double getPosition()
 	{
 		return jagLift.getPosition();
 	}
-
+	public void moveUpwards()
+	{
+		jagLift.jagLiftMove(3.0);
+	}
+	public void siftDash()
+	{
+		SmartDashboard.putBoolean("Top limit Switch", jagLift.getTopLimitSwitch());
+		SmartDashboard.putBoolean("Bottom limit Switch", jagLift.getBottomLimitSwitch());
+	}
 }

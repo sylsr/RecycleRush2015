@@ -19,11 +19,13 @@ public class Robot extends IterativeRobot
 	JagSlave jagSlave;
 	DriveAlign boxAlign;
 	TalonSlave talonSlave;
+	LiftSlave lifter;
     public void robotInit()
     {
     	jagSlave = new JagSlave();
     	boxAlign=new DriveAlign();
     	talonSlave = new TalonSlave();
+    	lifter=new LiftSlave();
     }
 	
 	public void disabledPeriodic() 
@@ -41,12 +43,15 @@ public class Robot extends IterativeRobot
     {
     	boxAlign.startDash();
     	talonSlave.spinIn();
+    	lifter.test();
+    	lifter.moveUp();
+    	lifter.startLifterDash();
     	//jagSlave.moveBackwards();
-    	switch(boxAlign.driveAlign())
+    	/*switch(boxAlign.driveAlign())
     	{
-    		/*case 0:
+    		case 0:
     			jagSlave.moveForward();
-    			break;*/
+    			break;
     		case 1:
     			switch(boxAlign.centerRobot())
     			{
@@ -67,7 +72,7 @@ public class Robot extends IterativeRobot
     		default:
     			jagSlave.stopRobot();
     			break;
-    	}
+    	}*/
     }
 
     public void teleopInit() 
