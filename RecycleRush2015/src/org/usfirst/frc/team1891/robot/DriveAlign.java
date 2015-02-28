@@ -15,18 +15,19 @@ public class DriveAlign extends InfraredSlave
 	 */
 	public int driveAlign()
 	{
-		if(super.averageLeft()>900)
+		if(super.averageLeft()>1000)
 		{
-			if(super.averageRight()>900)
+			if(super.averageRight()>1000)
 			{
 				return 1;
 			}
+			return 0;
 		}
 		else
 		{
 			return 0;
 		}
-		return currentLeftAverage;
+
 	}
 	/**
 	 * startDash() sends all IR sensor data to the smartdashbaord
@@ -47,11 +48,11 @@ public class DriveAlign extends InfraredSlave
 		int rightSide=super.sideIRDataRight();
 		int leftSide=super.sideIRDataLeft();
 		int toleranceSetSide=(rightSide-leftSide);
-		if(toleranceSetSide<125)
+		if(toleranceSetSide>300)
 		{
 			return 0;
 		}
-		else if(toleranceSetSide>-125)
+		else if(toleranceSetSide<-300)
 		{
 			return 1;
 		}

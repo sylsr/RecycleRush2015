@@ -16,14 +16,12 @@ import org.usfirst.frc.team1891.robot.subsystems.ExampleSubsystem;
 
 public class Robot extends IterativeRobot
 {
-	LiftSlave jagLift;
 	JagSlave jagSlave;
 	DriveAlign boxAlign;
 	TalonSlave talonSlave;
 	LiftSlave lifter;
     public void robotInit()
     {
-    	jagLift = new LiftSlave();
     	jagSlave = new JagSlave();
     	boxAlign=new DriveAlign();
     	talonSlave = new TalonSlave();
@@ -43,39 +41,46 @@ public class Robot extends IterativeRobot
 
     public void autonomousPeriodic()
     {
-    	SmartDashboard.putBoolean("Top Limit Switch", jagLift.topLimitSwitch());
-    	SmartDashboard.putBoolean("Bottom Limit Switch", jagLift.bottomLimitSwitch());
-    	SmartDashboard.putDouble("P Value", jagLift.p());
-    	jagLift.liftDown(-1);
+   
     	boxAlign.startDash();
     	talonSlave.spinIn();
-    	lifter.test();
-    	lifter.moveUp();
-    	lifter.startLifterDash();
+    	SmartDashboard.putNumber("Testing boxAlign.driveAlign()",boxAlign.driveAlign());
+    	SmartDashboard.putNumber("Testing boxAlign.centerRobot()",boxAlign.centerRobot());
     	//jagSlave.moveBackwards();
-    	/*switch(boxAlign.driveAlign())
+    	switch(boxAlign.driveAlign())
     	{
     		case 0:
+    		{
     			jagSlave.moveForward();
+    		}
     			break;
     		case 1:
-    			switch(boxAlign.centerRobot())
-    			{
-    				case 0:
-    					jagSlave.moveHorizontallyLeft();
-    					break;
-    				case 1:
-    					jagSlave.moveHorizontallyRight();
-    					break;
-    				case 2:
-    					jagSlave.stopRobot();
-    					break;
-    				default:
-    					break;
-    			}
+	    		{
+	    			switch(boxAlign.centerRobot())
+	    			{
+	    				case 0:
+	    				{
+	    					jagSlave.moveHorizontallyRight();
+	    				}
+	    					break;
+	    				case 1:
+	    				{
+	    					jagSlave.moveHorizontallyLeft();
+	    				}
+	    					break;
+	    				case 2:
+	    				{
+	    					jagSlave.stopRobot();
+	    				}
+	    					break;
+	    				default:
+	    					break;
+	    			}
+	    		}
+	    		break;
     		default:
     			break;
-    	}*/
+    	}
     }
 
     public void teleopInit() 
