@@ -47,8 +47,14 @@ public class LifterJag
 	}
 	public double getPosition()
 	{
-		jagLift.configEncoderCodesPerRev(1000);
 		return jagLift.getPosition();
+	}
+
+	public double getP() 
+	{
+		jagLift.setPositionMode(CANJaguar.kQuadEncoder, 1000, 0.0, 0.5, 0.5);
+		return jagLift.getP();
+		
 	}
 	
 	
