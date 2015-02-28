@@ -42,11 +42,11 @@ public class Robot extends IterativeRobot
     	boxAlign.startDash();
     	talonSlave.spinIn();
     	//jagSlave.moveBackwards();
-    	/*switch(boxAlign.driveAlign())
+    	switch(boxAlign.driveAlign())
     	{
-    		case 0:
+    		/*case 0:
     			jagSlave.moveForward();
-    			break;
+    			break;*/
     		case 1:
     			switch(boxAlign.centerRobot())
     			{
@@ -60,11 +60,14 @@ public class Robot extends IterativeRobot
     					jagSlave.stopRobot();
     					break;
     				default:
+    					jagSlave.stopRobot();
     					break;
     			}
-    		default:
     			break;
-    	}*/
+    		default:
+    			jagSlave.stopRobot();
+    			break;
+    	}
     }
 
     public void teleopInit() 

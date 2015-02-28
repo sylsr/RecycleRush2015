@@ -4,44 +4,49 @@ import edu.wpi.first.wpilibj.AnalogInput;
 
 public class InfraredMaster
 {
-	AnalogInput infraredLeft;
+	AnalogInput infraredBackLeft;
+	AnalogInput infraredBackRight;
 	AnalogInput infraredRight;
-	AnalogInput infraredLongLeft;
-	AnalogInput infraredLongRight;
-	AnalogInput infraredSideRight;
-	AnalogInput infraredSideLeft;
+	AnalogInput infraredLeft;
 	public InfraredMaster()
-	{
-		infraredLeft =new AnalogInput(0);
-		infraredRight = new AnalogInput(1);
-		infraredLongLeft= new AnalogInput(2);
-		infraredLongRight= new AnalogInput(3);
-		infraredSideRight=new AnalogInput(4);
-		infraredSideLeft= new AnalogInput(5);
+	{	
+		infraredLeft= new AnalogInput(0);
+		infraredBackLeft =new AnalogInput(1);
+		infraredBackRight = new AnalogInput(2);
+		infraredRight=new AnalogInput(3);
+	
 	}
 	/**
-	 * getDistanceLeft() returns the resistance of the left IR sensor
+	 * returns the value of the back left IR sensor
 	 * @return
 	 */
 	public int getDistanceLeft()
 	{
-		return infraredLeft.getValue();
+		return infraredBackLeft.getValue();
 	}
 	/**
-	 * getDistanceRight() returns the resistance of the right IR sensor
+	 * returns the value of the back right IR sensor
 	 * @return
 	 */
 	public int getDistanceRight()
 	{
-		return infraredRight.getValue();
+		return infraredBackRight.getValue();
 	}
+	/**
+	 * returns the value of the right IR sensor, the one that is on the side of the robot
+	 * @return
+	 */
 	public int getSideRightDistance()
 	{
-		return infraredSideRight.getValue();
+		return infraredRight.getValue();
 	}
+	/**
+	 * returns the value of the left IR sensor, the one that is on the side of the robot
+	 * @return
+	 */
 	public int getSideLeftDistance()
 	{
-		return infraredSideLeft.getValue();
+		return infraredLeft.getValue();
 	}
 	
 }

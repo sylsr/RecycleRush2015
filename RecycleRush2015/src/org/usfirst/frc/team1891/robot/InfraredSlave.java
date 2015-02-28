@@ -15,7 +15,7 @@ public class InfraredSlave
 	 * averageLeft() puts the LinkedList data in, averages it and then returns the average of 10 integers
 	 * @return
 	 */
-	public int averageLeft()
+	public int averageBackLeft()
 	{
 		averageInfraredLeft.add(IRMaster.getDistanceLeft());
 		return averageInfraredLeft.getAverage();
@@ -24,32 +24,16 @@ public class InfraredSlave
 	 *  averageRight() puts the LinkedList data in, averages it and then returns the average of 10 integers
 	 * @return
 	 */
-	public int averageRight()
+	public int averageBackRight()
 	{
 		averageInfraredRight.add(IRMaster.getDistanceRight());
 		return averageInfraredRight.getAverage();
 	}
-	/**
-	 * longDataRight() gets the data of the long IR sensor on the right
-	 * @return
-	 */
-	public int longDataRight()
-	{
-		return IRMaster.getDistanceRight();
-	}
-	/**
-	 * longDataLeft() gets the data of the long IR sensor on the left
-	 * @return
-	 */
-	public int longDataLeft()
-	{
-		return IRMaster.getDistanceLeft();
-	}
-	public int sideIRDataRight()
+	public int IRDataRight()
 	{
 		return IRMaster.getSideRightDistance();
 	}
-	public int sideIRDataLeft()
+	public int IRDataLeft()
 	{
 		return IRMaster.getSideLeftDistance();
 	}
