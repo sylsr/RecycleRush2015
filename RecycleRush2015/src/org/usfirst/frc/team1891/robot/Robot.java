@@ -44,7 +44,7 @@ public class Robot extends IterativeRobot
     public void autonomousPeriodic()
     {
     	boxAlign.startDash();
-    	//talonSlave.spinIn();
+    	talonSlave.spinIn();
     	lifter.test();
     	lifter.moveUp();
     	lifter.startLifterDash();
