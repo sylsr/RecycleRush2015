@@ -18,12 +18,12 @@ public class Robot extends IterativeRobot
 {
 	JagSlave jagSlave;
 	DriveAlign boxAlign;
-	LiftSlave jagLift;
+	TalonSlave talonSlave;
     public void robotInit()
     {
-    	jagLift = new LiftSlave();
     	jagSlave = new JagSlave();
     	boxAlign=new DriveAlign();
+    	talonSlave = new TalonSlave();
     }
 	
 	public void disabledPeriodic() 
@@ -33,40 +33,38 @@ public class Robot extends IterativeRobot
 
     public void autonomousInit()
     {
-    	
 
     }
 
 
     public void autonomousPeriodic()
     {
-    	SmartDashboard.putBoolean("Top Limit Switch", jagLift.topLimitSwitch());
-    	SmartDashboard.putBoolean("Bottom Limit Switch", jagLift.bottomLimitSwitch());
-    	SmartDashboard.putDouble("P Lift Value", jagLift.p());
+    	boxAlign.startDash();
+    	talonSlave.spinIn();
+    	//jagSlave.moveBackwards();
     	/*switch(boxAlign.driveAlign())
-        {
-        	case 0:
-        		jagSlave.moveForward();
-        		break;
-        	case 1:
-        	     switch(boxAlign.centerRobot())
-        	     {
-        		      case 0:
-	        		      jagSlave.moveHorizontallyLeft();;
-	        		      break;
-        		      case 1:
-        		    	  jagSlave.moveHorizontallyRight();
-	        		      break;
-        		      default:
-        		    	  //jagSlave.liftDown();
-        		    	  jagSlave.stopRobot();
-	        		      break;
-        	      }
-        	      break;  
-        	default:
-        		break;
-        
-        }*/
+    	{
+    		case 0:
+    			jagSlave.moveForward();
+    			break;
+    		case 1:
+    			switch(boxAlign.centerRobot())
+    			{
+    				case 0:
+    					jagSlave.moveHorizontallyLeft();
+    					break;
+    				case 1:
+    					jagSlave.moveHorizontallyRight();
+    					break;
+    				case 2:
+    					jagSlave.stopRobot();
+    					break;
+    				default:
+    					break;
+    			}
+    		default:
+    			break;
+    	}*/
     }
 
     public void teleopInit() 
@@ -83,7 +81,7 @@ public class Robot extends IterativeRobot
 
     public void teleopPeriodic()
     {
-
+    	boxAlign.startDash();
     }
     
 

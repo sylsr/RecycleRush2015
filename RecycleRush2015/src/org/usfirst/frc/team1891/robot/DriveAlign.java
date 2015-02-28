@@ -7,20 +7,26 @@ public class DriveAlign extends InfraredSlave
 	int currentLeftAverage=super.averageLeft();
 	int currentRightAverage=super.averageRight();
 	int toleranceSet=(currentLeftAverage-currentRightAverage);
+	/**
+	 * When robot drives up to a box it will return 1 if the IR sensors detect that the box is close to the back of the
+	 * robot. When 1 is returned run centerRobot().
+	 * otherwise it will return 0 and this should indicate to keep moving.
+	 * 
+	 */
 	public int driveAlign()
 	{
-		if(super.averageLeft()>1000)
+		if(super.averageLeft()>900)
 		{
-			if(super.averageRight()>1000)
+			if(super.averageRight()>900)
 			{
 				return 1;
 			}
 		}
-		else if(toleranceSet<=100 || toleranceSet>=-100)
+		else
 		{
 			return 0;
 		}
-		return toleranceSet;
+		return currentLeftAverage;
 	}
 	/**
 	 * startDash() sends all IR sensor data to the smartdashbaord
@@ -29,8 +35,8 @@ public class DriveAlign extends InfraredSlave
 	{
 		SmartDashboard.putNumber("Average IR Left", super.averageLeft());
 		SmartDashboard.putNumber("Average IR Right", super.averageRight());
-        SmartDashboard.putNumber("Infrared Long Right",super.longDataRight());
-        SmartDashboard.putNumber("Infrared Long Left", super.longDataLeft());
+        //SmartDashboard.putNumber("Infrared Long Right",super.longDataRight());
+        //SmartDashboard.putNumber("Infrared Long Left", super.longDataLeft());
         super.startSideDashIR();
 	}
 	/**
@@ -40,12 +46,12 @@ public class DriveAlign extends InfraredSlave
 	{
 		int rightSide=super.sideIRDataRight();
 		int leftSide=super.sideIRDataLeft();
-		int toleranceSet=(rightSide-leftSide);
-		if(toleranceSet>125)
+		int toleranceSetSide=(rightSide-leftSide);
+		if(toleranceSetSide<125)
 		{
 			return 0;
 		}
-		else if(toleranceSet<-125)
+		else if(toleranceSetSide>-125)
 		{
 			return 1;
 		}
