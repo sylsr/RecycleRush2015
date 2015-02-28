@@ -19,13 +19,11 @@ public class Robot extends IterativeRobot
 	JagSlave jagSlave;
 	DriveAlign boxAlign;
 	TalonSlave talonSlave;
-	LiftSlave jagLift;
     public void robotInit()
     {
     	jagSlave = new JagSlave();
     	boxAlign=new DriveAlign();
     	talonSlave = new TalonSlave();
-    	jagLift = new LiftSlave();
     }
 	
 	public void disabledPeriodic() 
@@ -41,10 +39,6 @@ public class Robot extends IterativeRobot
 
     public void autonomousPeriodic()
     {
-    	SmartDashboard.putBoolean("Top Limit Switch", jagLift.topLimitSwitch());
-    	SmartDashboard.putBoolean("Bottom Limit Switch", jagLift.bottomLimitSwitch());
-    	SmartDashboard.putDouble("P Vaue", jagLift.p());
-    	jagLift.liftDown(-1);
     	boxAlign.startDash();
     	talonSlave.spinIn();
     	//jagSlave.moveBackwards();
