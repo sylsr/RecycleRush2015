@@ -34,15 +34,18 @@ public class LiftMaster
 	}
 	public double getPosition()
 	{
+		jagLift.setPositionMode();
 		return jagLift.getPosition();
 	}
 	public void moveUpwards()
 	{
 		jagLift.jagLiftMove(3.0);
 	}
+	@SuppressWarnings("deprecation")
 	public void siftDash()
 	{
 		SmartDashboard.putBoolean("Top limit Switch", jagLift.getTopLimitSwitch());
 		SmartDashboard.putBoolean("Bottom limit Switch", jagLift.getBottomLimitSwitch());
+		SmartDashboard.putDouble("P Value", jagLift.getPosition());
 	}
 }
