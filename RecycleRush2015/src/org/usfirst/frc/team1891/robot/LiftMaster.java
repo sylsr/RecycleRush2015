@@ -7,7 +7,7 @@ public class LiftMaster
 {
 	static boolean hitSwitch=false;
 	LifterJag jagLift;
-	static double startBottomPosition=0;
+	static double currentP;
 	public LiftMaster()
 	{
 		jagLift = new LifterJag();
@@ -16,36 +16,41 @@ public class LiftMaster
 	{
 		if(hitSwitch!=true)
 		{
-			jagLift.setVoltageMode();
 			if(jagLift.getBottomLimitSwitch()!=false)
 			{
-				jagLift.jagLiftMove(-2.0);
+				jagLift.setVoltageMode();
+				jagLift.jagLiftMove(-5.0);
 				return 0;
 			}
 			else
 			{
-				jagLift.setPositionMode();
-				startBottomPosition=jagLift.getPosition();
 				hitSwitch=true;
-				return 1;
+				jagLift.setPositionMode();
 			}
 		}
 		return 1;
 	}
 	public double getPosition()
 	{
-		jagLift.setPositionMode();
 		return jagLift.getPosition();
 	}
-	public void moveUpwards()
+	public void moveUpward()
 	{
-		jagLift.jagLiftMove(3.0);
+		currentP=(Math.abs(jagLift.getPosition()));
+		if(currentP<=1.5)
+		{
+			jagLift.setP(1.0);
+		}
+		else
+		{
+			jagLift.stopLifter();
+		}
+	
 	}
-	@SuppressWarnings("deprecation")
 	public void siftDash()
 	{
 		SmartDashboard.putBoolean("Top limit Switch", jagLift.getTopLimitSwitch());
 		SmartDashboard.putBoolean("Bottom limit Switch", jagLift.getBottomLimitSwitch());
-		SmartDashboard.putDouble("P Value", jagLift.getPosition());
+		SmartDashboard.putNumber("currentP",currentP);
 	}
 }

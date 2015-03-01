@@ -26,11 +26,9 @@ public class LifterJag
 	}
 	public void setPositionMode()
 	{
-		if(mode!= true)
-		{
-		jagLift.setPositionMode(CANJaguar.kQuadEncoder, 1000, 0.0, 0.5, 0.5);
-		jagLift.enableControl();
-		}
+
+			jagLift.setPositionMode(CANJaguar.kQuadEncoder, 1000, 0.0, 0.5, 0.5);
+			jagLift.enableControl();
 		mode = true;;
 	}
 	public void jagLiftMove(double setVal)
@@ -52,9 +50,17 @@ public class LifterJag
 
 	public double getP() 
 	{
-		jagLift.setPositionMode(CANJaguar.kQuadEncoder, 1000, 0.0, 0.5, 0.5);
 		return jagLift.getP();
 		
+	}
+	public void stopLifter()
+	{
+		jagLift.set(0);
+	}
+	public double setP(double d)
+	{
+		jagLift.set(d);
+		return d;
 	}
 	
 	

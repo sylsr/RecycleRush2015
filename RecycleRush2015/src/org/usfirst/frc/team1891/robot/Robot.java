@@ -47,7 +47,10 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putNumber("Testing boxAlign.driveAlign()",boxAlign.driveAlign());
     	SmartDashboard.putNumber("Testing boxAlign.centerRobot()",boxAlign.centerRobot());
     	//jagSlave.moveBackwards();
-    	switch(boxAlign.driveAlign())
+    	lifter.test();
+    	lifter.moveUp();
+    	lifter.startLifterDash();
+    	/*switch(boxAlign.driveAlign())
     	{
     		case 0:
     		{
@@ -80,7 +83,7 @@ public class Robot extends IterativeRobot
 	    		break;
     		default:
     			break;
-    	}
+    	}*/
     }
 
     public void teleopInit() 

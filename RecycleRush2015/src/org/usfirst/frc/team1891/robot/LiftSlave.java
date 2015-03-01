@@ -35,8 +35,9 @@ public class LiftSlave
 		if(configurationComplete!=false)
 		{
 		
-			jagLift.moveUpwards();
+			jagLift.moveUpward();
 		}
 	}
+
 	
 }
