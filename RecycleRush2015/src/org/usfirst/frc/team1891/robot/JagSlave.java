@@ -4,6 +4,7 @@ public class JagSlave
 {
 	static boolean hasBeenSet=false;
 	JagMaster jagMaster=new JagMaster();
+	JoystickSlave joySlave= new JoystickSlave(0);
 	/**
 	 * Code to move the robot forwards
 	 * best to be used in autonomous mode
