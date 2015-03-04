@@ -101,4 +101,16 @@ public class JoystickSlave
 		
 		return reciprocal;
 	}
+	public boolean joyButton7()
+	{
+		return joyMaster.getButton(7);
+	}
+	public boolean joyButton8()
+	{
+		return joyMaster.getButton(8);
+	}
+	public void lift()
+	{
+	//	joyButton7.whileHeld(joyMaster.liftJag.)
+	}
 }

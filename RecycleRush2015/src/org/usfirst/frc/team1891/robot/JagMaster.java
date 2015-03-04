@@ -4,12 +4,14 @@ import edu.wpi.first.wpilibj.CANJaguar;
 
 public class JagMaster 
 {
+	LifterJag liftJag;
 	CANJaguar jag2;
 	CANJaguar jag3;
 	CANJaguar jag4;
 	CANJaguar jag6;
 	public JagMaster()
 	{
+		liftJag = new LifterJag();
 		jag2=new CANJaguar(2);
 		jag3=new CANJaguar(3);
 		jag4=new CANJaguar(4);
@@ -60,6 +62,10 @@ public class JagMaster
 	public void setJag6(double setVal)
 	{
 		jag6.set(setVal);
+	}
+	public void setLift(double setVal)
+	{
+		liftJag.set(setVal);
 	}
 	
 	

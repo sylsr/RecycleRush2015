@@ -17,7 +17,7 @@ public class LifterJag
 	
 	public void setVoltageMode()
 	{
-		if(mode != true)
+		//if(mode != true)
 		{
 		jagLift.setVoltageMode();
 		jagLift.enableControl();
@@ -31,7 +31,7 @@ public class LifterJag
 
 			jagLift.setPositionMode(CANJaguar.kQuadEncoder, 1000, 0.0, 0.5, 0.5);
 			jagLift.enableControl();
-		mode = true;;
+		mode = true;
 	}
 	public void jagLiftMove(double setVal)
 	{
@@ -63,6 +63,10 @@ public class LifterJag
 	{
 		jagLift.set(d);
 		return d;
+	}
+	public void set(double s)
+	{
+		jagLift.set(s);
 	}
 	
 	

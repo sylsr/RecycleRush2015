@@ -46,8 +46,9 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putNumber("Testing boxAlign.driveAlign()",boxAlign.driveAlign());
     	SmartDashboard.putNumber("Testing boxAlign.centerRobot()",boxAlign.centerRobot());
     	//jagSlave.moveBackwards();
-    	lifter.test();
-    	lifter.moveUp();
+    	//lifter.test();
+    	//lifter.moveUp();
+    	lifter.telopMoveUp();
     	lifter.startLifterDash();
     	/*switch(boxAlign.driveAlign())
     	{
@@ -101,6 +102,20 @@ public class Robot extends IterativeRobot
     {
     	boxAlign.startDash();
     	jagSlave.startTeleop();
+    	SmartDashboard.putBoolean("Right trigger", jagSlave.joyButton7());
+    	SmartDashboard.putBoolean("Left trigger", jagSlave.joyButton8());
+    	if(jagSlave.joyButton7()==true)
+    	{
+    		lifter.telopMoveUp();
+    	}
+    	/*else if(jagSlave.joyButton8()==true)
+    	{
+    		lifter.telopMoveDown();
+    	}
+    	else
+    	{
+    		lifter.stop();
+    	}*/
     }
     
 

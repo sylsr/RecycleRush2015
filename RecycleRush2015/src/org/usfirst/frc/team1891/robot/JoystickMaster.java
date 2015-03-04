@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class JoystickMaster
 {
 	
+	LifterJag liftJag;
 	//Instantiates joystick
 	Joystick joyRight;
 	// sets DEADZONE around all axis
@@ -15,6 +16,7 @@ public class JoystickMaster
 	//constructor for DriveMaster
 	public JoystickMaster(int joyPort) 
 	{
+		liftJag = new LifterJag();
 		joyRight= new Joystick(joyPort);
 	}
 	//returns DEADZONE
@@ -82,6 +84,7 @@ public class JoystickMaster
 	
 	public boolean getButton(int button)
 	{
+		
 		return joyRight.getRawButton(button);
 	}
 	
@@ -105,5 +108,9 @@ public class JoystickMaster
 			button = -1;
 		}
 		return button;
+	}
+	public void setLift(double setVal)
+	{
+		liftJag.set(setVal);
 	}
 }

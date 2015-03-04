@@ -38,13 +38,25 @@ public class LiftMaster
 	{
 		jagLift.setP(1.0);
 	}
-	public void stop()
+	public void stop(double setVal)
 	{
-		jagLift.stopLifter();
+		jagLift.jagLiftMove(setVal);
 	}
 	public void siftDash()
 	{
 		SmartDashboard.putBoolean("Top limit Switch", jagLift.getTopLimitSwitch());
 		SmartDashboard.putBoolean("Bottom limit Switch", jagLift.getBottomLimitSwitch());
+	}
+	public void moveDown()
+	{
+		jagLift.setP(-3);
+	}
+	public void set(double setVal)
+	{
+		jagLift.jagLiftMove(setVal);
+	}
+	public void setVoltageMode()
+	{
+		jagLift.setVoltageMode();
 	}
 }
