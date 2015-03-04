@@ -24,8 +24,8 @@ public class LiftMaster
 			}
 			else
 			{
-				hitSwitch=true;
 				jagLift.setPositionMode();
+				hitSwitch=true;
 			}
 		}
 		return 1;
@@ -36,21 +36,15 @@ public class LiftMaster
 	}
 	public void moveUpward()
 	{
-		currentP=(Math.abs(jagLift.getPosition()));
-		if(currentP<=1.5)
-		{
-			jagLift.setP(1.0);
-		}
-		else
-		{
-			jagLift.stopLifter();
-		}
-	
+		jagLift.setP(1.0);
+	}
+	public void stop()
+	{
+		jagLift.stopLifter();
 	}
 	public void siftDash()
 	{
 		SmartDashboard.putBoolean("Top limit Switch", jagLift.getTopLimitSwitch());
 		SmartDashboard.putBoolean("Bottom limit Switch", jagLift.getBottomLimitSwitch());
-		SmartDashboard.putNumber("currentP",currentP);
 	}
 }

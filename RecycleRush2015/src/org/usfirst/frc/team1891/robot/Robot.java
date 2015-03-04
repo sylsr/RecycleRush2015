@@ -100,6 +100,7 @@ public class Robot extends IterativeRobot
     public void teleopPeriodic()
     {
     	boxAlign.startDash();
+    	jagSlave.startTeleop();
     }
     
 

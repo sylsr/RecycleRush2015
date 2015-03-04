@@ -1,6 +1,8 @@
 package org.usfirst.frc.team1891.robot;
 
 import edu.wpi.first.wpilibj.CANJaguar;
+import edu.wpi.first.wpilibj.CANJaguar.ControlMode;
+import edu.wpi.first.wpilibj.Sendable;
 
 public class LifterJag
 {
@@ -62,7 +64,6 @@ public class LifterJag
 		jagLift.set(d);
 		return d;
 	}
-	
 	
 	
 

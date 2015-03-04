@@ -33,7 +33,7 @@ public class JagMaster
 	 * gets a voltage value and sets jag 2 to that voltage value
 	 * @param setVal
 	 */
-	public void setJag2(int setVal)
+	public void setJag2(double setVal)
 	{
 		jag2.set(setVal);
 	}
@@ -41,23 +41,23 @@ public class JagMaster
 	 * gets a voltage value and sets jag 3 to that voltage value
 	 * @param setVal
 	 */
-	public void setJag3(int setVal)
+	public void setJag3(double setVal)
 	{
 		jag3.set(setVal);
 	}
 	/**
 	 * gets a voltage value and sets jag 4 to that voltage value
-	 * @param setVal
+	 * @param d
 	 */
-	public void setJag4(int setVal)
+	public void setJag4(double d)
 	{
-		jag4.set(setVal);
+		jag4.set(d);
 	}
 	/**
 	 * gets a voltage value and sets jag 6 to that voltage value
 	 * @param setVal
 	 */
-	public void setJag6(int setVal)
+	public void setJag6(double setVal)
 	{
 		jag6.set(setVal);
 	}

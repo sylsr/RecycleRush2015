@@ -4,6 +4,7 @@ public class JagSlave
 {
 	static boolean hasBeenSet=false;
 	JagMaster jagMaster=new JagMaster();
+	JoystickSlave joySlave= new JoystickSlave(0);
 	/**
 	 * Code to move the robot forwards
 	 * best to be used in autonomous mode
@@ -82,5 +83,12 @@ public class JagSlave
 		jagMaster.setJag4(0);
 		jagMaster.setJag6(0);
 		hasBeenSet=true;
+	}
+	public void startTeleop()
+	{
+		jagMaster.setJag2(joySlave.setSpeed(6));
+		jagMaster.setJag4(joySlave.setSpeed(4));
+		jagMaster.setJag6(joySlave.setSpeed(3));
+		jagMaster.setJag3(joySlave.setSpeed(5));
 	}
 }
