@@ -1,104 +1,109 @@
 package org.usfirst.frc.team1891.robot;
 
-public class JoystickSlave 
-{
-	JoystickMaster joyMaster;
-	public JoystickSlave(int portNum)
-	{
-		joyMaster = new JoystickMaster(portNum);
-	}
-	public double setSpeed(int Index)
-	{
-		double Speed = 0;
-		double x = joyMaster.getXAxis();
-		double y = joyMaster.getYAxis();
-		double z = joyMaster.getZAxis();
-		double damp = getPrecisionMode();
-		
-		double a = (y - z - x) * damp;
-		double b = (y + z + x) * damp;
-		double c = (y + z - x) * damp;
-		double d = (y - z + x) * damp;
-		
-		double overflow = getOverflow(a, b, c, d);
-		
-		
-		if (Index == 3)
-		{
-			Speed = a * overflow;
-		}
-		if (Index == 4)
-		{
-			Speed = -b * overflow;
-		}
-		if (Index == 5)
-		{
-			Speed = -c * overflow;
-		}
-		if (Index == 6)
-		{
-			Speed = d * overflow;
-		}
-		
-		
-		
-		
-		/**
-		FrontLeft (jag 4) = Y + Z + X
-		RearLeft(jag 5) = Y + Z - X
-		FrontRight(jag 3) = Y - Z - X
-		RearRight(jag 6) = Y - Z + X
-		**/
-		
-		
-		return Speed;
-	}
-	
-	public double getPrecisionMode()
-	{
-		double damp = 1;
-		
-		//for slider on joystick damp
-		if(joyMaster.getProfile() == 3||joyMaster.getProfile()==1){
-			damp = (-joyMaster.getSlider() + 1) * .35 + .3;
-		}
-		//for xbox360 r trigger damp
-		else if (joyMaster.getProfile() == 2){
-			damp = 1-joyMaster.getSlider() * .7;
-		}
-		
-		
-		//for single button damp
+import edu.wpi.first.wpilibj.Joystick;
+public class JoystickSlave {
 
-		if(joyMaster.getButton(6) == true){
-			damp = .3;
-		}
-	
+	//Instantiates joystick
+	Joystick joyRight;
+	// sets DEADZONE around all axis
+	public final double DEADZONE=0.2;
+	//constructor for DriveMaster
+	//returns DEADZONE
+	public double getDEADZONE()
+	{
+		return DEADZONE;
+	}
+	//gets the profile
+	public int getProfile()
+	{
+		//for main logitech joystick and logitech controller
+		int profileIndex = 1;
 		
-		return damp;
+		//for xbox controller
+		if (joyRight.getButtonCount() == 10) profileIndex = 2;
+		
+		//for logitech attack 3 joystick
+		if (joyRight.getButtonCount() == 11) profileIndex = 3;
+		
+		if (joyRight.getButtonCount() == 5) profileIndex = 4;
+		
+		return profileIndex;
+	}
+	//gets the modified y axis from the joystick that tests against deadzone
+	
+	public double getYAxis()
+	{
+		return getDead(joyRight.getY());
+			
+	}
+	//gets the modified x axis from the joystick that tests against deadzone
+	public double getXAxis()
+	{
+		return getDead(-joyRight.getX());
+		
+	}
+	//gets the modified z axis from the joystick that tests against deadzone; for joystick RawAxis index is 2, for xbox index is 4
+	public double getZAxis()
+	{
+		double z = 0;
+		if (getProfile() == 1)
+		{
+			z = getDead(-joyRight.getZ());
+		}
+		if (getProfile() == 2)
+		{
+			z = getDead(-joyRight.getRawAxis(4));
+		}
+		if (getProfile()==3)
+		{
+			z = buttonDrive();
+		}
+		if (getProfile()==4)
+		{
+			z = getDead(-joyRight.getRawAxis(4));
+		}
+		return z;
+		
 	}
 	
-	
-	//this method checks if any joystick inputs are greater than one, and if they
-	//are, it returns a fraction to keep the jags running at the same ratio
-	
-	public double getOverflow(double a, double b, double c, double d)
+	public double getDead(double a)
 	{
-		a = Math.abs(a);
-		b = Math.abs(b);
-		c = Math.abs(c);
-		d = Math.abs(d);
 		
-		double max = Math.max(Math.max(a,b), Math.max(c, d));
-		double reciprocal = 1;
-		
-		if (max >= 1)
+		if(Math.abs(a) > DEADZONE)
 		{
-			reciprocal = 1/max;
+			return a;
 		}
-		
-		
-		
-		return reciprocal;
+		return 0;
+	}
+	
+	public boolean getButton(int button)
+	{
+		return joyRight.getRawButton(button);
+	}
+	
+	public double getSlider()
+	{
+		double slider = 0;
+		if(getProfile() == 3){
+			slider = joyRight.getZ();
+		}else if(getProfile() == 4){
+			slider = joyRight.getRawAxis(3);
+		}else{
+			slider = joyRight.getRawAxis(3);
+		}
+		return slider;
+	}
+	public double buttonDrive()
+	{
+		double button = 0;
+		if(getButton(4)==true){
+			button = 1;
+		}
+		if(getButton(5)==true){
+			button = -1;
+		}
+		return button;
 	}
 }
+
+
