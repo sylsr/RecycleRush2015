@@ -1,13 +1,22 @@
 package org.usfirst.frc.team1891.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
-public class JoystickMaster {
+import edu.wpi.first.wpilibj.CANJaguar;
 
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+public class JoystickMaster
+{
+	
 	//Instantiates joystick
 	Joystick joyRight;
 	// sets DEADZONE around all axis
 	public final double DEADZONE=0.2;
 	//constructor for DriveMaster
+	public JoystickMaster(int joyPort) 
+	{
+		joyRight= new Joystick(joyPort);
+	}
 	//returns DEADZONE
 	public double getDEADZONE()
 	{
@@ -25,7 +34,6 @@ public class JoystickMaster {
 		//for logitech attack 3 joystick
 		if (joyRight.getButtonCount() == 11) profileIndex = 3;
 		
-		if (joyRight.getButtonCount() == 5) profileIndex = 4;
 		
 		return profileIndex;
 	}
@@ -58,10 +66,6 @@ public class JoystickMaster {
 		{
 			z = buttonDrive();
 		}
-		if (getProfile()==4)
-		{
-			z = getDead(-joyRight.getRawAxis(4));
-		}
 		return z;
 		
 	}
@@ -86,8 +90,6 @@ public class JoystickMaster {
 		double slider = 0;
 		if(getProfile() == 3){
 			slider = joyRight.getZ();
-		}else if(getProfile() == 4){
-			slider = joyRight.getRawAxis(3);
 		}else{
 			slider = joyRight.getRawAxis(3);
 		}
@@ -105,4 +107,3 @@ public class JoystickMaster {
 		return button;
 	}
 }
-
