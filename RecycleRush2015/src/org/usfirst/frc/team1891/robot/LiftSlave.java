@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class LiftSlave
 {
+	int volt1 = 1;
 	static boolean configurationComplete=false;
 	static double lifterPosition;
 	LiftMaster jagLift;
@@ -32,7 +33,11 @@ public class LiftSlave
 		SmartDashboard.putNumber("Testing Lifter Position", jagLift.getPosition());
 		SmartDashboard.putNumber("lifter Position", lifterPosition);
 		jagLift.siftDash();
-		jagLift.setVoltageMode();
+		while(volt1 == 1)
+		{
+			jagLift.setVoltageMode();
+			volt1++;
+		}
 	}
 	public void moveUp()
 	{

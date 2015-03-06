@@ -19,12 +19,16 @@ public class Robot extends IterativeRobot
 	DriveAlign boxAlign;
 	TalonSlave talonSlave;
 	LiftSlave lifter;
+	
+	
     public void robotInit()
     {
     	jagSlave = new JagSlave();
     	boxAlign=new DriveAlign();
     	talonSlave = new TalonSlave();
     	lifter=new LiftSlave();
+    	
+    	
     }
 	
 	public void disabledPeriodic() 
@@ -104,18 +108,27 @@ public class Robot extends IterativeRobot
     	jagSlave.startTeleop();
     	SmartDashboard.putBoolean("Right trigger", jagSlave.joyButton7());
     	SmartDashboard.putBoolean("Left trigger", jagSlave.joyButton8());
-    	if(jagSlave.joyButton7()==true)
+    	lifter.startLifterDash();
+    	if(jagSlave.joyButton7() && jagSlave.joyButton8() == true)
+    	{
+    		lifter.stop();
+    	}
+    	else if(jagSlave.joyButton7()==true)
     	{
     		lifter.telopMoveUp();
     	}
-    	/*else if(jagSlave.joyButton8()==true)
+    	else if(jagSlave.joyButton8()==true)
     	{
     		lifter.telopMoveDown();
     	}
     	else
     	{
     		lifter.stop();
-    	}*/
+    	}
+    	
+    	
+    	
+ 
     }
     
 

@@ -99,4 +99,8 @@ public class JagSlave
 	{
 		return joySlave.joyButton8();
 	}
+	public boolean joyButton4()
+	{
+		return joyButton4();
+	}
 }

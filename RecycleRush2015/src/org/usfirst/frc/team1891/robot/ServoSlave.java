@@ -1,8 +1,10 @@
 package org.usfirst.frc.team1891.robot;
 import edu.wpi.first.wpilibj.Servo;
-public class ServoSlave{
+public class ServoSlave
+{
 		Servo servl;
-		Servo servr;{
+		Servo servr;
+		{
 		
 		servl= new Servo(2);
 		servr= new Servo(1);
