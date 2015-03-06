@@ -108,14 +108,14 @@ public class Robot extends IterativeRobot
     	{
     		lifter.telopMoveUp();
     	}
-    	/*else if(jagSlave.joyButton8()==true)
+    	if(jagSlave.joyButton8()==true)
     	{
     		lifter.telopMoveDown();
     	}
     	else
     	{
     		lifter.stop();
-    	}*/
+    	}
     }
     
 
