@@ -38,9 +38,9 @@ public class LiftMaster
 	{
 		jagLift.setP(1.0);
 	}
-	public void stop(double setVal)
+	public void stop()
 	{
-		jagLift.jagLiftMove(setVal);
+		jagLift.setP(0);
 	}
 	public void siftDash()
 	{

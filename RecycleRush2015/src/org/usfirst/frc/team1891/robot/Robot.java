@@ -50,10 +50,6 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putNumber("Testing boxAlign.driveAlign()",boxAlign.driveAlign());
     	SmartDashboard.putNumber("Testing boxAlign.centerRobot()",boxAlign.centerRobot());
     	//jagSlave.moveBackwards();
-    	//lifter.test();
-    	//lifter.moveUp();
-    	lifter.telopMoveUp();
-    	lifter.startLifterDash();
     	/*switch(boxAlign.driveAlign())
     	{
     		case 0:

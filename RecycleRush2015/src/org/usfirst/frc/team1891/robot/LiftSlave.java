@@ -1,6 +1,5 @@
 package org.usfirst.frc.team1891.robot;
 
-import oracle.jrockit.jfr.events.DynamicValueDescriptor;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
@@ -44,14 +43,13 @@ public class LiftSlave
 		lifterPosition=Math.abs(jagLift.getPosition());
 		if(configurationComplete!=false)
 		{
-			System.out.println("Lifter:"+lifterPosition);
-			/*if(lifterPosition<=0.15)
+			if(lifterPosition<=1.5)
 			{
 				jagLift.moveUpward();
-			}*/
-			//else
+			}
+			else
 			{
-				//jagLift.stop();
+				jagLift.stop();
 			}
 		}
 	}
@@ -65,7 +63,7 @@ public class LiftSlave
 	}
 	public void stop()
 	{
-		jagLift.stop(0);
+		jagLift.stop();
 	}
 
 	
