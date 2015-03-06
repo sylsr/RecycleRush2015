@@ -19,12 +19,16 @@ public class Robot extends IterativeRobot
 	DriveAlign boxAlign;
 	TalonSlave talonSlave;
 	LiftSlave lifter;
+	JoystickMaster joyMaster;
+	ServoMaster servoMaster;
     public void robotInit()
     {
     	jagSlave = new JagSlave();
     	boxAlign=new DriveAlign();
     	talonSlave = new TalonSlave();
     	lifter=new LiftSlave();
+    	joyMaster = new JoystickMaster(0);
+    	servoMaster = new ServoMaster();
     }
 	
 	public void disabledPeriodic() 
@@ -108,6 +112,13 @@ public class Robot extends IterativeRobot
     	{
     		lifter.telopMoveUp();
     	}
+    	if(joyMaster.getButton(4)==true)
+    	{
+    		servoMaster.on();
+    	} else {
+    		servoMaster.reset();
+    	}
+
     	/*else if(jagSlave.joyButton8()==true)
     	{
     		lifter.telopMoveDown();
