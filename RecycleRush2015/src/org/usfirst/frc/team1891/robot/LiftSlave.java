@@ -29,7 +29,6 @@ public class LiftSlave
 	}
 	public void startLifterDash()
 	{
-		
 		SmartDashboard.putNumber("Testing Lifter Position", jagLift.getPosition());
 		SmartDashboard.putNumber("lifter Position", lifterPosition);
 		jagLift.siftDash();
@@ -41,10 +40,10 @@ public class LiftSlave
 		if(configurationComplete!=false)
 		{
 			System.out.println("Lifter:"+lifterPosition);
-			if(lifterPosition<=0.15)
+			/*if(lifterPosition<=0.15)
 			{
 				jagLift.moveUpward();
-			}
+			}*/
 			//else
 			{
 				//jagLift.stop();
@@ -53,11 +52,11 @@ public class LiftSlave
 	}
 	public void telopMoveUp()
 	{
-		jagLift.set(5);
+		jagLift.set(6);
 	}
 	public void telopMoveDown()
 	{
-		jagLift.set(-5);
+		jagLift.set(-6);
 	}
 	public void stop()
 	{

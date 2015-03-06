@@ -4,14 +4,14 @@ import edu.wpi.first.wpilibj.CANJaguar;
 
 public class JagMaster 
 {
-	//CANJaguar liftJag;
+	LifterJag liftJag;
 	CANJaguar jag2;
 	CANJaguar jag3;
 	CANJaguar jag4;
 	CANJaguar jag6;
 	public JagMaster()
 	{
-		//liftJag = new CANJaguar(5);
+		liftJag = new LifterJag();
 		jag2=new CANJaguar(2);
 		jag3=new CANJaguar(3);
 		jag4=new CANJaguar(4);
@@ -25,12 +25,10 @@ public class JagMaster
 		jag2.setVoltageMode();
 		jag3.setVoltageMode();
 		jag4.setVoltageMode();
-		//liftJag.setVoltageMode();
 		jag6.setVoltageMode();
 		jag2.enableControl();
 		jag3.enableControl();
 		jag4.enableControl();
-		//liftJag.enableControl();
 		jag6.enableControl();
 	}
 	/**
@@ -67,7 +65,7 @@ public class JagMaster
 	}
 	public void setLift(double setVal)
 	{
-		//liftJag.set(setVal);
+		liftJag.set(setVal);
 	}
 	
 	

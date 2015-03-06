@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.Sendable;
 
 public class LifterJag
 {
-	
 	//double plo;
 	//double pup = plo + 4.732;
 	CANJaguar jagLift;
@@ -69,7 +68,6 @@ public class LifterJag
 	{
 		jagLift.set(s);
 	}
-	
 	
 	
 

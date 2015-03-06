@@ -10,20 +10,21 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.vision.USBCamera;
 
+
+
+
 public class Robot extends IterativeRobot
 {
-	LiftSlave lifter;
 	JagSlave jagSlave;
 	DriveAlign boxAlign;
 	TalonSlave talonSlave;
-	
+	LiftSlave lifter;
     public void robotInit()
     {
-    	lifter = new LiftSlave();
     	jagSlave = new JagSlave();
     	boxAlign=new DriveAlign();
     	talonSlave = new TalonSlave();
-    	
+    	lifter=new LiftSlave();
     }
 	
 	public void disabledPeriodic() 
@@ -47,7 +48,8 @@ public class Robot extends IterativeRobot
     	//jagSlave.moveBackwards();
     	//lifter.test();
     	//lifter.moveUp();
-    	
+    	lifter.telopMoveUp();
+    	lifter.startLifterDash();
     	/*switch(boxAlign.driveAlign())
     	{
     		case 0:
@@ -86,7 +88,6 @@ public class Robot extends IterativeRobot
 
     public void teleopInit() 
     {
-  
 
 
     }
@@ -99,46 +100,22 @@ public class Robot extends IterativeRobot
 
     public void teleopPeriodic()
     {
-    	
     	boxAlign.startDash();
     	jagSlave.startTeleop();
     	SmartDashboard.putBoolean("Right trigger", jagSlave.joyButton7());
     	SmartDashboard.putBoolean("Left trigger", jagSlave.joyButton8());
-    	lifter.startLifterDash();
-    	
-    	if(jagSlave.joyButton8()==true)
+    	if(jagSlave.joyButton7()==true)
+    	{
+    		lifter.telopMoveUp();
+    	}
+    	/*else if(jagSlave.joyButton8()==true)
     	{
     		lifter.telopMoveDown();
     	}
     	else
     	{
     		lifter.stop();
-    	}
-    	if(jagSlave.joyButton7() == true)
-    	{
-    		lifter.telopMoveUp();
-    	}
-    	else
-    	{
-    		lifter.stop();
-    	}
-    	if(jagSlave.joyButton6() == true)
-    	{
-    		talonSlave.spinIn();
-    	}
-    	else
-    	{
-    		talonSlave.stop();
-    	}
-    	if(jagSlave.joyButton5() == true)
-    	{
-    		talonSlave.spinOut();
-    	}
-    	else
-    	{
-    		talonSlave.stop();
-    	}
-    	
+    	}*/
     }
     
 

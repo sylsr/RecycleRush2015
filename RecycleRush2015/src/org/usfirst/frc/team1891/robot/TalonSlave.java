@@ -17,8 +17,4 @@ public class TalonSlave {
 	{
 		TalonM.spinWheelsBack();
 	}
-	public void stop()
-	{
-		TalonM.stop();
-	}
 }
