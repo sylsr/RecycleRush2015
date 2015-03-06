@@ -19,6 +19,7 @@ public class Robot extends IterativeRobot
 	DriveAlign boxAlign;
 	TalonSlave talonSlave;
 	LiftSlave lifter;
+	ServoMaster serv;
 	
 	
     public void robotInit()
@@ -27,6 +28,7 @@ public class Robot extends IterativeRobot
     	boxAlign=new DriveAlign();
     	talonSlave = new TalonSlave();
     	lifter=new LiftSlave();
+    	ServoMaster serv;
     	
     	
     }
@@ -105,6 +107,23 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putBoolean("Right trigger", jagSlave.joyButton7());
     	SmartDashboard.putBoolean("Left trigger", jagSlave.joyButton8());
     	lifter.startLifterDash();
+    	if(jagSlave.joyButton5() == true)
+    	{
+    		serv.leftOn();
+    	}
+    	else
+    	{
+    		serv.leftOff();
+    	}
+    	if(jagSlave.joyButton6() == true)
+    	{
+    		serv.rightOn();
+    	}
+    	else 
+    	{
+    		serv.rightOff();
+    	}
+    	
     	if(jagSlave.joyButton7() && jagSlave.joyButton8() == true)
     	{
     		lifter.stop();

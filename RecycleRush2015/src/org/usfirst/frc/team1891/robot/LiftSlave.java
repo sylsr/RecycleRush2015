@@ -16,17 +16,6 @@ public class LiftSlave
 		jagLift = new LiftMaster();
 
 	}
-	public void test()
-	{
-		if(configurationComplete!=true)
-		{
-			if(jagLift.turnOn()==1)
-			{
-				configurationComplete=true;
-			}
-			jagLift.turnOn();
-		}
-	}
 	public void startLifterDash()
 	{
 		SmartDashboard.putNumber("Testing Lifter Position", jagLift.getPosition());
@@ -36,21 +25,6 @@ public class LiftSlave
 		{
 			jagLift.setVoltageMode();
 			volt1++;
-		}
-	}
-	public void moveUp()
-	{
-		lifterPosition=Math.abs(jagLift.getPosition());
-		if(configurationComplete!=false)
-		{
-			if(lifterPosition<=1.5)
-			{
-				jagLift.moveUpward();
-			}
-			else
-			{
-				jagLift.stop();
-			}
 		}
 	}
 	public void telopMoveUp()

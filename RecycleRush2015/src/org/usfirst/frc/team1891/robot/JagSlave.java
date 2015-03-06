@@ -103,4 +103,12 @@ public class JagSlave
 	{
 		return joyButton4();
 	}
+	public boolean joyButton5()
+	{
+		return joyButton5();
+	}
+	public boolean joyButton6()
+	{
+		return joyButton6();
+	}
 }
