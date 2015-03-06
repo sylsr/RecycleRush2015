@@ -109,5 +109,8 @@ public class JoystickSlave
 	{
 		return joyMaster.getButton(8);
 	}
-	
+	public void lift()
+	{
+	//	joyButton7.whileHeld(joyMaster.liftJag.)
+	}
 }

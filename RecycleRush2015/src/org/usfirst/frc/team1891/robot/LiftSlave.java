@@ -62,12 +62,6 @@ public class LiftSlave
 	{
 		jagLift.stop(0);
 	}
-	public void set(double setVal) 
-	{
-		jagLift.set(setVal);
-		
-		
-	}
 
 	
 }
