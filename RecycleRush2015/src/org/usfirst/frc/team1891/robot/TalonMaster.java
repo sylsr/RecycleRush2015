@@ -22,4 +22,10 @@ public class TalonMaster {
 		talon1.set(-0.3);
 		talon2.set(0.3);
 	}
+	
+	public void stopWheels()
+	{
+		talon1.set(0);
+		talon2.set(0);
+	}
 }
