@@ -91,5 +91,10 @@ public class JagSlave
 		jagMaster.setJag6(joySlave.setSpeed(3));
 		jagMaster.setJag3(joySlave.setSpeed(5));
 	}
+	public void setVoltageMode()
+	{
+		jagMaster.setAllVoltage();
+	}
+	
 
 }

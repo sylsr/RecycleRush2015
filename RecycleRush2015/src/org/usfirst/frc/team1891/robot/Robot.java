@@ -106,8 +106,9 @@ public class Robot extends IterativeRobot
     	jagSlave.startTeleop();
     	SmartDashboard.putBoolean("Right trigger", joyMaster.getButton(7));
     	SmartDashboard.putBoolean("Left trigger", joyMaster.getButton(8));
+    	//jagSlave.setVoltageMode();
     	lifter.startLifterDash();
-    	if(joyMaster.getButton(4))
+    	/*if(joyMaster.getButton(4))
     	{
     		switch(boxAlign.driveAlign())
         	{
@@ -143,7 +144,7 @@ public class Robot extends IterativeRobot
         		default:
         			break;
         	}	
-    	}
+    	}*/
     	if(joyMaster.getButton(5))
     	{
     		serv.leftOn();
