@@ -68,7 +68,9 @@ public class LifterJag
 	{
 		jagLift.set(s);
 	}
-	
-	
-
+	public double current(){
+		return	jagLift.getOutputCurrent();
+	}
 }
+	
+	
