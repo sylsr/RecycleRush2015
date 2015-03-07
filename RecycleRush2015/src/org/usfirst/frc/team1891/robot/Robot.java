@@ -107,6 +107,43 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putBoolean("Right trigger", joyMaster.getButton(7));
     	SmartDashboard.putBoolean("Left trigger", joyMaster.getButton(8));
     	lifter.startLifterDash();
+    	if(joyMaster.getButton(4))
+    	{
+    		switch(boxAlign.driveAlign())
+        	{
+        		case 0:
+        		{
+        			jagSlave.moveForward();
+        		}
+        			break;
+        		case 1:
+    	    		{
+    	    			switch(boxAlign.centerRobot())
+    	    			{
+    	    				case 0:
+    	    				{
+    	    					jagSlave.moveHorizontallyRight();
+    	    				}
+    	    					break;
+    	    				case 1:
+    	    				{
+    	    					jagSlave.moveHorizontallyLeft();
+    	    				}
+    	    					break;
+    	    				case 2:
+    	    				{
+    	    					jagSlave.stopRobot();
+    	    				}
+    	    					break;
+    	    				default:
+    	    					break;
+    	    			}
+    	    		}
+    	    		break;
+        		default:
+        			break;
+        	}	
+    	}
     	if(joyMaster.getButton(5))
     	{
     		serv.leftOn();
