@@ -1,9 +1,12 @@
 package org.usfirst.frc.team1891.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
+
 public class JagSlave
 {
 	static boolean hasBeenSet=false;
 	JagMaster jagMaster=new JagMaster();
+	static double rampRate=5;
 	JoystickSlave joySlave= new JoystickSlave(0);
 	/**
 	 * Code to move the robot forwards
@@ -86,10 +89,15 @@ public class JagSlave
 	}
 	public void startTeleop()
 	{
-		jagMaster.setJag2(joySlave.setSpeed(6));
-		jagMaster.setJag4(joySlave.setSpeed(4));
-		jagMaster.setJag6(joySlave.setSpeed(3));
-		jagMaster.setJag3(joySlave.setSpeed(5));
+		if(hasBeenSet!=true)
+		{
+			jagMaster.setAllVoltage();
+		}
+		jagMaster.setJag2(rampRate*joySlave.setSpeed(6));
+		jagMaster.setJag4(rampRate*joySlave.setSpeed(4));
+		jagMaster.setJag6(rampRate*joySlave.setSpeed(3));
+		jagMaster.setJag3(rampRate*joySlave.setSpeed(5));
+		hasBeenSet=true;
 	}
 	public void setVoltageMode()
 	{

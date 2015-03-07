@@ -48,12 +48,37 @@ public class Robot extends IterativeRobot
 
     public void autonomousPeriodic()
     {
-   
-    	boxAlign.startDash();
-    	//talonSlave.spinIn();
-    	SmartDashboard.putNumber("Testing boxAlign.driveAlign()",boxAlign.driveAlign());
-    	SmartDashboard.putNumber("Testing boxAlign.centerRobot()",boxAlign.centerRobot());
-    	//jagSlave.moveBackwards();
+    	boolean hasStopped=false;
+  	jagSlave.moveForward();
+  	navX.startDash();
+    	/*switch(navX.intoAutoZone())
+    	{
+	    	case 0:
+	    		if(hasStopped!=true)
+	    		{
+	    			jagSlave.moveForward();
+	    		}
+	    		break;
+	    	case 1:
+	    		jagSlave.stopRobot();
+	    		hasStopped=true;
+	    		break;
+	    	default:
+	    		jagSlave.stopRobot();
+	    		break;
+    	}*/
+    	if(navX.intoAutoZone()==0)
+    	{
+    		if(hasStopped!=true)
+    		{
+    			jagSlave.moveForward();
+    		}
+    	}
+    	else if(navX.intoAutoZone()==1)
+    	{
+    		jagSlave.stopRobot();
+    		hasStopped=true;
+    	}
     	/*switch(boxAlign.driveAlign())
     	{
     		case 0:
@@ -92,7 +117,7 @@ public class Robot extends IterativeRobot
 
     public void teleopInit() 
     {
-
+    	//jagSlave.setVoltageMode();
 
     }
 
@@ -108,7 +133,6 @@ public class Robot extends IterativeRobot
     	jagSlave.startTeleop();
     	SmartDashboard.putBoolean("Right trigger", joyMaster.getButton(7));
     	SmartDashboard.putBoolean("Left trigger", joyMaster.getButton(8));
-    	//jagSlave.setVoltageMode();
     	lifter.startLifterDash();
     	navX.startDash();
     	if(joyMaster.getButton(5))
