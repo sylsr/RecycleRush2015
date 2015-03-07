@@ -16,6 +16,7 @@ public class LiftSlave
 		jagLift = new LiftMaster();
 
 	}
+	
 	public void startLifterDash()
 	{
 		SmartDashboard.putNumber("Testing Lifter Position", jagLift.getPosition());
