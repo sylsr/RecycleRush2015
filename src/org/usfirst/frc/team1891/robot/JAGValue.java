@@ -82,7 +82,7 @@ public class JAGValue
 		
 		//for single button damp
 
-		if(roboDrive.getButton(6) == true){
+		if(roboDrive.getButton(2) == true){
 			damp = .3;
 		}
 	
