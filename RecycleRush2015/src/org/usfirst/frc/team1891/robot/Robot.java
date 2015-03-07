@@ -48,7 +48,7 @@ public class Robot extends IterativeRobot
     {
    
     	boxAlign.startDash();
-    	talonSlave.spinIn();
+    	//talonSlave.spinIn();
     	SmartDashboard.putNumber("Testing boxAlign.driveAlign()",boxAlign.driveAlign());
     	SmartDashboard.putNumber("Testing boxAlign.centerRobot()",boxAlign.centerRobot());
     	//jagSlave.moveBackwards();
@@ -147,19 +147,19 @@ public class Robot extends IterativeRobot
     	}*/
     	if(joyMaster.getButton(5))
     	{
-    		serv.leftOn();
+    		serv.leftOff();
     	}
     	else
     	{
-    		serv.leftOff();
+    		serv.leftOn();
     	}
     	if(joyMaster.getButton(6))
     	{
-    		serv.rightOn();
+    		serv.rightOff();
     	}
     	else 
     	{
-    		serv.rightOff();
+    		serv.rightOn();
     	}
     	
     	if(joyMaster.getButton(7) && joyMaster.getButton(8))
@@ -187,6 +187,6 @@ public class Robot extends IterativeRobot
 
     public void testPeriodic() 
     {
-
+    	boxAlign.startDash();
     }
 }
