@@ -21,6 +21,7 @@ public class Robot extends IterativeRobot
 	LiftSlave lifter;
 	ServoMaster serv;
 	JoystickMaster joyMaster;
+	AutoZone navX;
 	
     public void robotInit()
     {
@@ -30,6 +31,7 @@ public class Robot extends IterativeRobot
     	lifter=new LiftSlave();
     	serv = new ServoMaster();
     	joyMaster = new JoystickMaster(0);
+    	navX = new AutoZone();
     	
     }
 	
@@ -108,43 +110,7 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putBoolean("Left trigger", joyMaster.getButton(8));
     	//jagSlave.setVoltageMode();
     	lifter.startLifterDash();
-    	/*if(joyMaster.getButton(4))
-    	{
-    		switch(boxAlign.driveAlign())
-        	{
-        		case 0:
-        		{
-        			jagSlave.moveForward();
-        		}
-        			break;
-        		case 1:
-    	    		{
-    	    			switch(boxAlign.centerRobot())
-    	    			{
-    	    				case 0:
-    	    				{
-    	    					jagSlave.moveHorizontallyRight();
-    	    				}
-    	    					break;
-    	    				case 1:
-    	    				{
-    	    					jagSlave.moveHorizontallyLeft();
-    	    				}
-    	    					break;
-    	    				case 2:
-    	    				{
-    	    					jagSlave.stopRobot();
-    	    				}
-    	    					break;
-    	    				default:
-    	    					break;
-    	    			}
-    	    		}
-    	    		break;
-        		default:
-        			break;
-        	}	
-    	}*/
+    	navX.startDash();
     	if(joyMaster.getButton(5))
     	{
     		serv.leftOff();
