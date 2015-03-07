@@ -20,7 +20,7 @@ public class Robot extends IterativeRobot
 	TalonSlave talonSlave;
 	LiftSlave lifter;
 	ServoMaster serv;
-	
+	JoystickMaster joyMaster;
 	
     public void robotInit()
     {
@@ -28,8 +28,8 @@ public class Robot extends IterativeRobot
     	boxAlign=new DriveAlign();
     	talonSlave = new TalonSlave();
     	lifter=new LiftSlave();
-    	ServoMaster serv;
-    	
+    	serv = new ServoMaster();
+    	joyMaster = new JoystickMaster(0);
     	
     }
 	
@@ -104,10 +104,10 @@ public class Robot extends IterativeRobot
     {
     	boxAlign.startDash();
     	jagSlave.startTeleop();
-    	SmartDashboard.putBoolean("Right trigger", jagSlave.joyButton7());
-    	SmartDashboard.putBoolean("Left trigger", jagSlave.joyButton8());
+    	SmartDashboard.putBoolean("Right trigger", joyMaster.getButton(7));
+    	SmartDashboard.putBoolean("Left trigger", joyMaster.getButton(8));
     	lifter.startLifterDash();
-    	if(jagSlave.joyButton5() == true)
+    	if(joyMaster.getButton(5))
     	{
     		serv.leftOn();
     	}
@@ -115,7 +115,7 @@ public class Robot extends IterativeRobot
     	{
     		serv.leftOff();
     	}
-    	if(jagSlave.joyButton6() == true)
+    	if(joyMaster.getButton(6))
     	{
     		serv.rightOn();
     	}
@@ -124,15 +124,15 @@ public class Robot extends IterativeRobot
     		serv.rightOff();
     	}
     	
-    	if(jagSlave.joyButton7() && jagSlave.joyButton8() == true)
+    	if(joyMaster.getButton(7) && joyMaster.getButton(8))
     	{
     		lifter.stop();
     	}
-    	else if(jagSlave.joyButton7()==true)
+    	else if(joyMaster.getButton(7))
     	{
     		lifter.telopMoveUp();
     	}
-    	else if(jagSlave.joyButton8()==true)
+    	else if(joyMaster.getButton(8))
     	{
     		lifter.telopMoveDown();
     	}

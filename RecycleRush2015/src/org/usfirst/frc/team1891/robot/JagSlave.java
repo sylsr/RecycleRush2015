@@ -91,24 +91,5 @@ public class JagSlave
 		jagMaster.setJag6(joySlave.setSpeed(3));
 		jagMaster.setJag3(joySlave.setSpeed(5));
 	}
-	public boolean joyButton7()
-	{
-		return joySlave.joyButton7();
-	}
-	public boolean joyButton8()
-	{
-		return joySlave.joyButton8();
-	}
-	public boolean joyButton4()
-	{
-		return joyButton4();
-	}
-	public boolean joyButton5()
-	{
-		return joyButton5();
-	}
-	public boolean joyButton6()
-	{
-		return joyButton6();
-	}
+
 }

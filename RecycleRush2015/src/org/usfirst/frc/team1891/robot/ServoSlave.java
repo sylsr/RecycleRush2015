@@ -6,7 +6,7 @@ public class ServoSlave
 		Servo servr;
 		{
 		
-		servl= new Servo(2);
-		servr= new Servo(1);
+		servl= new Servo(1);
+		servr= new Servo(0);
 }
 }
