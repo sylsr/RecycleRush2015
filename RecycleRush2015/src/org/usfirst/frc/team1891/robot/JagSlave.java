@@ -81,11 +81,8 @@ public class JagSlave
 		{
 			jagMaster.setAllVoltage();
 		}
-		jagMaster.setJag2(0);
-		jagMaster.setJag3(0);
-		jagMaster.setJag4(0);
-		jagMaster.setJag6(0);
-		hasBeenSet=true;
+		jagMaster.breakJags();
+		hasBeenSet=false;
 	}
 	public void startTeleop()
 	{

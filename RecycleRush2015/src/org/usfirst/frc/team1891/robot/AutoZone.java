@@ -74,7 +74,7 @@ public class AutoZone
 		averageMovement.add((double)(Math.abs(imu.getWorldLinearAccelX())));
 		averageForward+=Math.abs(imu.getWorldLinearAccelX());
 		distance=(double)(averageForward/averageMovement.size());
-		if(distance<=1.5)
+		if(distance<=3.5)
 		{
 			return 0;
 		}
@@ -82,5 +82,9 @@ public class AutoZone
 		{
 			return 1;
 		}
+	}
+	public void autonomousInit()
+	{
+		distance=0;
 	}
 }

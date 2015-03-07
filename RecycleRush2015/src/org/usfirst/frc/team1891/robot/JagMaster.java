@@ -67,6 +67,13 @@ public class JagMaster
 	{
 		jag6.set(setVal);
 	}
+	public void breakJags()
+	{
+		jag2.disableControl();
+		jag3.disableControl();
+		jag4.disableControl();
+		jag6.disableControl();
+	}
 	
 	
 	

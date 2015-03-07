@@ -22,7 +22,7 @@ public class Robot extends IterativeRobot
 	ServoMaster serv;
 	JoystickMaster joyMaster;
 	AutoZone navX;
-	
+	static boolean hasStopped=false;
     public void robotInit()
     {
     	jagSlave = new JagSlave();
@@ -42,42 +42,21 @@ public class Robot extends IterativeRobot
 
     public void autonomousInit()
     {
-
+    	navX.autonomousInit();
     }
 
 
     public void autonomousPeriodic()
     {
-    	boolean hasStopped=false;
-  	jagSlave.moveForward();
   	navX.startDash();
-    	/*switch(navX.intoAutoZone())
-    	{
-	    	case 0:
-	    		if(hasStopped!=true)
-	    		{
-	    			jagSlave.moveForward();
-	    		}
-	    		break;
-	    	case 1:
-	    		jagSlave.stopRobot();
-	    		hasStopped=true;
-	    		break;
-	    	default:
-	    		jagSlave.stopRobot();
-	    		break;
-    	}*/
+    	SmartDashboard.putNumber("intoAutoZone()", navX.intoAutoZone());
     	if(navX.intoAutoZone()==0)
     	{
-    		if(hasStopped!=true)
-    		{
-    			jagSlave.moveForward();
-    		}
+    		jagSlave.moveForward();
     	}
     	else if(navX.intoAutoZone()==1)
     	{
     		jagSlave.stopRobot();
-    		hasStopped=true;
     	}
     	/*switch(boxAlign.driveAlign())
     	{
