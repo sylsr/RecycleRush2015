@@ -14,19 +14,19 @@ public class ServoMaster extends ServoSlave
 		}
 		public void leftOn()
 		{
-			servl.setAngle(60);
+			servl.setAngle(175);
 		}
 		public void rightOn()
 		{
-			servr.setAngle(145);
+			servr.setAngle(200);
 		}
 		public void leftOff()
 		{
-			servl.setAngle(175);
+			servl.setAngle(60);
 		}
 		public void rightOff()
 		{
-			servr.setAngle(200);
+			servr.setAngle(145);
 		}
 	
 
