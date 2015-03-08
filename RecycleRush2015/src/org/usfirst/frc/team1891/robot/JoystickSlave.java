@@ -25,19 +25,19 @@ public class JoystickSlave
 		
 		if (Index == 3)
 		{
-			Speed = a * overflow;
+			Speed = a * overflow*5;
 		}
 		if (Index == 4)
 		{
-			Speed = -b * overflow;
+			Speed = -b * overflow*5;
 		}
 		if (Index == 5)
 		{
-			Speed = -c * overflow;
+			Speed = -c * overflow*5;
 		}
 		if (Index == 6)
 		{
-			Speed = d * overflow;
+			Speed = d * overflow*5;
 		}
 		
 		
@@ -59,18 +59,18 @@ public class JoystickSlave
 		double damp = 1;
 		
 		//for slider on joystick damp
-		if(joyMaster.getProfile() == 3||joyMaster.getProfile()==1){
+		/*if(joyMaster.getProfile() == 3||joyMaster.getProfile()==1){
 			damp = (-joyMaster.getSlider() + 1) * .35 + .3;
 		}
 		//for xbox360 r trigger damp
 		else if (joyMaster.getProfile() == 2){
 			damp = 1-joyMaster.getSlider() * .7;
-		}
+		}*/
 		
 		
 		//for single button damp
 
-		if(joyMaster.getButton(6) == true){
+		if(joyMaster.getButton(12) == true){
 			damp = .3;
 		}
 	

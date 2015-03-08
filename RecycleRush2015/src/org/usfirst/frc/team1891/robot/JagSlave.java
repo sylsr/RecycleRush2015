@@ -90,10 +90,10 @@ public class JagSlave
 		{
 			jagMaster.setAllVoltage();
 		}
-		jagMaster.setJag2(rampRate*joySlave.setSpeed(6));
-		jagMaster.setJag4(rampRate*joySlave.setSpeed(4));
-		jagMaster.setJag6(rampRate*joySlave.setSpeed(3));
-		jagMaster.setJag3(rampRate*joySlave.setSpeed(5));
+		jagMaster.setJag2(joySlave.setSpeed(6));
+		jagMaster.setJag4(joySlave.setSpeed(4));
+		jagMaster.setJag6(joySlave.setSpeed(3));
+		jagMaster.setJag3(joySlave.setSpeed(5));
 		hasBeenSet=true;
 	}
 	public void setVoltageMode()

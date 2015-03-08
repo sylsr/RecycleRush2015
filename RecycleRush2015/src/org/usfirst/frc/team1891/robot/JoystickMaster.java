@@ -36,7 +36,6 @@ public class JoystickMaster
 		//for logitech attack 3 joystick
 		if (joyRight.getButtonCount() == 11) profileIndex = 3;
 		
-		
 		return profileIndex;
 	}
 	//gets the modified y axis from the joystick that tests against deadzone

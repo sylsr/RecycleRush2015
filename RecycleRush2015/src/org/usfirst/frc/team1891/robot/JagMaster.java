@@ -30,10 +30,10 @@ public class JagMaster
 		jag3.enableControl();
 		jag4.enableControl();
 		jag6.enableControl();
-		jag2.setVoltageRampRate(.5);
-		jag3.setVoltageRampRate(.5);
-		jag4.setVoltageRampRate(.5);
-		jag6.setVoltageRampRate(.5);
+		jag2.setVoltageRampRate(0.1);
+		jag3.setVoltageRampRate(0.1);
+		jag4.setVoltageRampRate(0.1);
+		jag6.setVoltageRampRate(0.1);
 	}
 	/**
 	 * gets a voltage value and sets jag 2 to that voltage value

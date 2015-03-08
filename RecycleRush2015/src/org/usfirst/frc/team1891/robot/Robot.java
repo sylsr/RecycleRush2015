@@ -58,40 +58,6 @@ public class Robot extends IterativeRobot
     	{
     		jagSlave.stopRobot();
     	}
-    	/*switch(boxAlign.driveAlign())
-    	{
-    		case 0:
-    		{
-    			jagSlave.moveForward();
-    		}
-    			break;
-    		case 1:
-	    		{
-	    			switch(boxAlign.centerRobot())
-	    			{
-	    				case 0:
-	    				{
-	    					jagSlave.moveHorizontallyRight();
-	    				}
-	    					break;
-	    				case 1:
-	    				{
-	    					jagSlave.moveHorizontallyLeft();
-	    				}
-	    					break;
-	    				case 2:
-	    				{
-	    					jagSlave.stopRobot();
-	    				}
-	    					break;
-	    				default:
-	    					break;
-	    			}
-	    		}
-	    		break;
-    		default:
-    			break;
-    	}*/
     }
 
     public void teleopInit() 
