@@ -103,9 +103,5 @@ public class JoystickSlave
 
 
 	}
-	public double getRawAxis()
-	{
-		return joyMaster.getYAxis();
-	}
 		
 }
