@@ -1,5 +1,7 @@
 package org.usfirst.frc.team1891.robot;
 
+import java.util.LinkedList;
+
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -14,6 +16,7 @@ public class AutoZone
 	SerialPort serial_port;
 	IMUAdvanced imu;
 	boolean first_iteration;
+	static double distance=0;
 	//AccelMaster has in its constructor the IMUAdvanced
 	public AutoZone()
 	{
@@ -63,5 +66,21 @@ public class AutoZone
 	     SmartDashboard.putNumber(   "IMU_Temp_C",           imu.getTempC());
 	        
 	        Timer.delay(0.2);
+	}
+	public int intoAutoZone()
+	{
+		LinkedList<Double> distanceArray = new LinkedList<Double>();
+		distanceArray.add((double) imu.getWorldLinearAccelX());
+		double tempDistance=0;
+		tempDistance+=imu.getWorldLinearAccelX();
+		distance=(double)(tempDistance/distanceArray.size());
+		if(distance<=3.5)
+		{
+			return 0;
+		}
+		else
+		{
+			return 1;
+		}
 	}
 }
