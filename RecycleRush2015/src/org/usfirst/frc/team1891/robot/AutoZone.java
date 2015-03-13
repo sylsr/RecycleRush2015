@@ -17,6 +17,7 @@ public class AutoZone
 	IMUAdvanced imu;
 	boolean first_iteration;
 	static double distance=0;
+	static double tempDistance=0;
 	//AccelMaster has in its constructor the IMUAdvanced
 	public AutoZone()
 	{
@@ -64,20 +65,19 @@ public class AutoZone
 	     SmartDashboard.putNumber(   "IMU_Accel_Y",          imu.getWorldLinearAccelY());
 	     SmartDashboard.putBoolean(  "IMU_IsMoving",         imu.isMoving());
 	     SmartDashboard.putNumber(   "IMU_Temp_C",           imu.getTempC());
-	        
+	     SmartDashboard.putNumber("Distance to AutoZone" , distance);
 	        Timer.delay(0.2);
 	}
 	public int intoAutoZone()
 	{
 		LinkedList<Double> distanceArray = new LinkedList<Double>();
 		distanceArray.add((double) imu.getWorldLinearAccelX());
-		double tempDistance=0;
-		tempDistance+=imu.getWorldLinearAccelX();
+		tempDistance+=(Math.abs(imu.getWorldLinearAccelX()));
 		distance=(double)(tempDistance/distanceArray.size());
-		if(distance<=3.5)
+		if(distance<=4.2)
 		{
 			return 0;
-		}
+		} 
 		else
 		{
 			return 1;
