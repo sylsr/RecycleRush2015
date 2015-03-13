@@ -10,7 +10,7 @@ public class LiftSlave
 	static boolean configurationComplete=false;
 	static double lifterPosition;
 	LiftMaster jagLift;
-
+	static boolean lifterModeSet=false;
 	public LiftSlave()
 	{	
 		jagLift = new LiftMaster();
@@ -30,11 +30,16 @@ public class LiftSlave
 	}
 	public void telopMoveUp()
 	{
-		jagLift.set(6);
+		if(lifterModeSet!=true)
+		{
+			jagLift.setVoltageMode();
+		}
+			jagLift.set(10);
+		
 	}
 	public void telopMoveDown()
 	{
-		jagLift.set(-6);
+		jagLift.set(-10);
 	}
 	public void stop()
 	{

@@ -79,11 +79,12 @@ public class Robot extends IterativeRobot
     public void teleopPeriodic()
     {
     	boxAlign.startDash();
-    	jagSlave.startTeleop();
+    	//jagSlave.startTeleop();
     	SmartDashboard.putBoolean("Right trigger", joyMaster.getButton(7));
     	SmartDashboard.putBoolean("Left trigger", joyMaster.getButton(8));
     	lifter.startLifterDash();
     	navX.startDash();
+    	joyMaster.getPrecisionMode();
     	if(joyMaster.getButton(5))
     	{
     		serv.leftOff();
@@ -107,11 +108,11 @@ public class Robot extends IterativeRobot
     	}
     	else if(joyMaster.getButton(7))
     	{
-    		lifter.telopMoveUp();
+    		lifter.telopMoveDown();
     	}
     	else if(joyMaster.getButton(8))
     	{
-    		lifter.telopMoveDown();
+    		lifter.telopMoveUp();
     	}
     	else
     	{

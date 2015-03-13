@@ -6,7 +6,7 @@ public class JagSlave
 {
 	static boolean hasBeenSet=false;
 	JagMaster jagMaster=new JagMaster();
-	static double rampRate=5;
+	static double rampRate=10;
 	JoystickSlave joySlave= new JoystickSlave(0);
 	/**
 	 * Code to move the robot forwards
@@ -18,10 +18,10 @@ public class JagSlave
 		{
 			jagMaster.setAllVoltage();
 		}
-		jagMaster.setJag2(-3);
-		jagMaster.setJag3(3);
-		jagMaster.setJag4(3);
-		jagMaster.setJag6(-3);
+		jagMaster.setJag2(-6);
+		jagMaster.setJag3(6);
+		jagMaster.setJag4(6);
+		jagMaster.setJag6(-6);
 		hasBeenSet=true;
 	}
 	/**

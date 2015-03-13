@@ -74,7 +74,7 @@ public class AutoZone
 		distanceArray.add((double) imu.getWorldLinearAccelX());
 		tempDistance+=(Math.abs(imu.getWorldLinearAccelX()));
 		distance=(double)(tempDistance/distanceArray.size());
-		if(distance<=4.2)
+		if(distance<=4.5)
 		{
 			return 0;
 		} 

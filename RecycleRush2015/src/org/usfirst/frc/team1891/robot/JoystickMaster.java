@@ -108,5 +108,27 @@ public class JoystickMaster
 		}
 		return button;
 	}
+	public double getPrecisionMode()
+	{
+		double damp = 0.8;
+		
+		//for slider on joystick damp
+		//if(joyMaster.getProfile() == 3||joyMaster.getProfile()==1){
+		/*	damp = (-joyMaster.getSlider() + 1) * .35 + .3;
+		}
+		for xbox360 r trigger damp
+		else if (joyMaster.getProfile() == 2){
+			damp = 1-joyMaster.getSlider() * .7;
+		}*/
+		
+		
+		//for single button damp
+
+		if(getButton(2) == true)
+		{
+			damp = 1.0;
+		}
+		return damp;
+	}
 	
 }
