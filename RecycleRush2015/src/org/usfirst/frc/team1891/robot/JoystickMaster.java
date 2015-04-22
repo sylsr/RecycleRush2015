@@ -42,7 +42,7 @@ public class JoystickMaster
 	
 	public double getYAxis()
 	{
-		return getDead(joyRight.getY());
+		return getDead(joyRight.getRawAxis(0));
 			
 	}
 	//gets the modified x axis from the joystick that tests against deadzone
